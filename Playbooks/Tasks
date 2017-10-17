@@ -1,1 +1,10 @@
 
+---
+- hosts: all
+  become: yes
+  tasks:
+  - name: Install Apache
+    yum:
+      name: httpd
+      state: present
+      when: ansible_distribution == "Redhat"
