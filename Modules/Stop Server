@@ -1,0 +1,15 @@
+# http://docs.ansible.com/ansible/latest/playbooks_conditionals.html#the-when-statement
+
+--- 
+- hosts: all
+  become: yes
+  tasks: 
+  - name: "Shut down redhat 6 and ubuntu 5 servers "
+    command: /sbin/shutdown -t now
+    when: (ansible_distribution == "redhat" and ansible_distribution_major_version == "6" ) or
+          (ansible_distribution == "ubuntu" and ansible_distribution_major_version == "5" )
+          
+      
+      
+      
+   
