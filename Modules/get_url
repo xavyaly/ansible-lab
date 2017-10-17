@@ -6,11 +6,11 @@
   tasks: 
   - name: copy module
     copy: 
-	    src: /home/javed/
-	    dest: /home/javed/myenv
+      src: /home/javed/
+      dest: /home/javed/myenv
   - name: Get_url for downloading from http
     get_url: 
-	    url: http://ftp.yz.yamagata-u.ac.jp/pub/misc/jenkins/war-stable/2.73.2/jenkins.war
-	    dest: /etc/foo.conf
-	    mode: 0440
+      url: http://ftp.yz.yamagata-u.ac.jp/pub/misc/jenkins/war-stable/2.73.2/jenkins.war
+      dest: /etc/foo.conf
+      mode: 0440
     
