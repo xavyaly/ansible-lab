@@ -1,0 +1,13 @@
+# http://docs.ansible.com/ansible/latest/apt_module.html#examples
+# After apt, all are child
+
+---
+- hosts: all
+  become: yes
+  tasks:
+  - name: Update the repository cache and update package "nginx" to latest version using default release squeeze-backport
+    apt:
+      name: nginx
+      state: present
+      default_release: squeeze-backport
+      update_cache: yes
