@@ -1,0 +1,8 @@
+# Check all the nodes are up or not
+
+---
+- hosts: all
+  become: yes
+  tasks:
+  - name: ping the nodes
+    ping: 
