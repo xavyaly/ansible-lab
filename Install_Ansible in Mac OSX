@@ -15,3 +15,56 @@ If you are installing on OS X Mavericks, you may encounter some noise from your 
 
 $ sudo CFLAGS=-Qunused-arguments CPPFLAGS=-Qunused-arguments pip install ansible
 Readers that use virtualenv can also install Ansible under virtualenv, though we’d recommend to not worry about it and just install Ansible globally. Do not use easy_install to install ansible directly.
+
+
+
+Output: Successfully Installed
+
+[root@ip-<ip> ~]# easy_install pip
+Searching for pip
+Best match: pip 9.0.1
+Adding pip 9.0.1 to easy-install.pth file
+Installing pip script to /usr/local/bin
+Installing pip2.7 script to /usr/local/bin
+Installing pip2 script to /usr/local/bin
+
+Using /usr/lib/python2.7/dist-packages
+Processing dependencies for pip
+Finished processing dependencies for pip
+[root@ip-<ip> ~]# pip install ansible
+Collecting ansible
+  Downloading ansible-2.4.0.0.tar.gz (6.6MB)
+    100% |████████████████████████████████| 6.6MB 177kB/s 
+Requirement already satisfied: jinja2 in /usr/lib/python2.7/dist-packages (from ansible)
+Requirement already satisfied: PyYAML in /usr/lib64/python2.7/dist-packages (from ansible)
+Requirement already satisfied: paramiko in /usr/lib/python2.7/dist-packages (from ansible)
+Collecting cryptography (from ansible)
+  Downloading cryptography-2.1.1-cp27-cp27mu-manylinux1_x86_64.whl (2.2MB)
+    100% |████████████████████████████████| 2.2MB 542kB/s 
+Requirement already satisfied: setuptools in /usr/lib/python2.7/dist-packages (from ansible)
+Requirement already satisfied: markupsafe in /usr/lib64/python2.7/dist-packages (from jinja2->ansible)
+Requirement already satisfied: pycrypto!=2.4,>=2.1 in /usr/lib64/python2.7/dist-packages (from paramiko->ansible)
+Requirement already satisfied: ecdsa>=0.11 in /usr/lib/python2.7/dist-packages (from paramiko->ansible)
+Collecting asn1crypto>=0.21.0 (from cryptography->ansible)
+  Downloading asn1crypto-0.23.0-py2.py3-none-any.whl (99kB)
+    100% |████████████████████████████████| 102kB 9.8MB/s 
+Requirement already satisfied: six>=1.4.1 in /usr/lib/python2.7/dist-packages (from cryptography->ansible)
+Collecting enum34; python_version < "3" (from cryptography->ansible)
+  Downloading enum34-1.1.6-py2-none-any.whl
+Collecting cffi>=1.7; platform_python_implementation != "PyPy" (from cryptography->ansible)
+  Downloading cffi-1.11.2-cp27-cp27mu-manylinux1_x86_64.whl (405kB)
+    100% |████████████████████████████████| 409kB 3.0MB/s 
+Collecting ipaddress; python_version < "3" (from cryptography->ansible)
+  Downloading ipaddress-1.0.18-py2-none-any.whl
+Collecting idna>=2.1 (from cryptography->ansible)
+  Downloading idna-2.6-py2.py3-none-any.whl (56kB)
+    100% |████████████████████████████████| 61kB 10.0MB/s 
+Collecting pycparser (from cffi>=1.7; platform_python_implementation != "PyPy"->cryptography->ansible)
+  Downloading pycparser-2.18.tar.gz (245kB)
+    100% |████████████████████████████████| 256kB 4.6MB/s 
+Installing collected packages: asn1crypto, enum34, pycparser, cffi, ipaddress, idna, cryptography, ansible
+  Running setup.py install for pycparser ... done
+  Running setup.py install for ansible ... done
+Successfully installed ansible-2.4.0.0 asn1crypto-0.23.0 cffi-1.11.2 cryptography-2.1.1 enum34-1.1.6 idna-2.6 ipaddress-1.0.18 pycparser-2.18
+[root@ip-<ip> ~]# 
+
