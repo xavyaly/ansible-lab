@@ -844,4 +844,13 @@ Adding bcrypt 3.1.4 to easy-install.pth file
 Installed /Users/javedalam/anaconda3/lib/python3.6/site-packages/bcrypt-3.1.4-py3.6-macosx-10.7-x86_64.egg
 Finished processing dependencies for ansible
 Javeds-MacBook-Air:Machine Learning javedalam$ 
+Javeds-MacBook-Air:Machine Learning javedalam$ ansible --version
+ansible 2.4.2.0
+  config file = None
+  configured module search path = ['/Users/javedalam/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /Users/javedalam/anaconda3/lib/python3.6/site-packages/ansible-2.4.2.0-py3.6.egg/ansible
+  executable location = /Users/javedalam/anaconda3/bin/ansible
+  python version = 3.6.3 |Anaconda, Inc.| (default, Oct  6 2017, 12:04:38) [GCC 4.2.1 Compatible Clang 4.0.1 (tags/RELEASE_401/final)]
+Javeds-MacBook-Air:Machine Learning javedalam$ 
+
 
