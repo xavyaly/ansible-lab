@@ -68,3 +68,780 @@ Installing collected packages: asn1crypto, enum34, pycparser, cffi, ipaddress, i
 Successfully installed ansible-2.4.0.0 asn1crypto-0.23.0 cffi-1.11.2 cryptography-2.1.1 enum34-1.1.6 idna-2.6 ipaddress-1.0.18 pycparser-2.18
 [root@ip-<ip> ~]# 
 
+------------------------------------------------------------------------------------------------------------------------------
+OR
+------------------------------------------------------------------------------------------------------------------------------
+
+Javeds-MacBook-Air:Machine Learning javedalam$ sudo easy_install ansible
+Password:
+Searching for ansible
+Reading https://pypi.python.org/simple/ansible/
+Downloading https://pypi.python.org/packages/4f/65/ae3ad8589c38f9e04ebc8a824c2880eb4f9e603a1f62b5f5a3f938e524b0/ansible-2.4.2.0.tar.gz#md5=88240a923505d604bd7a4fb91d7721e8
+Best match: ansible 2.4.2.0
+Processing ansible-2.4.2.0.tar.gz
+Writing /tmp/easy_install-21owwdsg/ansible-2.4.2.0/setup.cfg
+Running ansible-2.4.2.0/setup.py -q bdist_egg --dist-dir /tmp/easy_install-21owwdsg/ansible-2.4.2.0/egg-dist-tmp-nreu8082
+no previously-included directories found matching 'ticket_stubs'
+no previously-included directories found matching 'hacking'
+zip_safe flag not set; analyzing archive contents...
+ansible.cli.__pycache__.__init__.cpython-36: module references __file__
+ansible.cli.__pycache__.__init__.cpython-36: module references __path__
+ansible.config.__pycache__.manager.cpython-36: module references __file__
+ansible.executor.__pycache__.module_common.cpython-36: module references __file__
+ansible.galaxy.__pycache__.__init__.cpython-36: module references __file__
+ansible.module_utils.__pycache__.basic.cpython-36: module references __file__
+ansible.module_utils.__pycache__.gcp.cpython-36: module references __file__
+ansible.module_utils.six.__pycache__.__init__.cpython-36: module references __path__
+ansible.modules.cloud.amazon.__pycache__.ec2_elb_lb.cpython-36: module references __file__
+ansible.modules.cloud.amazon.__pycache__.elb_classic_lb.cpython-36: module references __file__
+ansible.modules.files.__pycache__.unarchive.cpython-36: module references __file__
+ansible.modules.packaging.os.__pycache__.apt.cpython-36: module references __file__
+ansible.modules.utilities.logic.__pycache__.async_wrapper.cpython-36: module references __file__
+ansible.plugins.__pycache__.loader.cpython-36: module references __file__
+ansible.plugins.callback.__pycache__.__init__.cpython-36: module references __file__
+ansible.plugins.callback.__pycache__.osx_say.cpython-36: module references __file__
+creating /Users/javedalam/anaconda3/lib/python3.6/site-packages/ansible-2.4.2.0-py3.6.egg
+Extracting ansible-2.4.2.0-py3.6.egg to /Users/javedalam/anaconda3/lib/python3.6/site-packages
+Adding ansible 2.4.2.0 to easy-install.pth file
+Installing ansible-console script to /Users/javedalam/anaconda3/bin
+Installing ansible-playbook script to /Users/javedalam/anaconda3/bin
+Installing ansible-inventory script to /Users/javedalam/anaconda3/bin
+Installing ansible-pull script to /Users/javedalam/anaconda3/bin
+Installing ansible-vault script to /Users/javedalam/anaconda3/bin
+Installing ansible script to /Users/javedalam/anaconda3/bin
+Installing ansible-doc script to /Users/javedalam/anaconda3/bin
+Installing ansible-galaxy script to /Users/javedalam/anaconda3/bin
+Installing ansible-config script to /Users/javedalam/anaconda3/bin
+Installing ansible-connection script to /Users/javedalam/anaconda3/bin
+
+Installed /Users/javedalam/anaconda3/lib/python3.6/site-packages/ansible-2.4.2.0-py3.6.egg
+Processing dependencies for ansible
+Searching for paramiko
+Reading https://pypi.python.org/simple/paramiko/
+Downloading https://pypi.python.org/packages/c8/de/791773d6a4b23327c7475ae3d7ada0d07fa147bf77fb6f561a4a7d8afd11/paramiko-2.4.0.tar.gz#md5=ed6d085a5e5369817e49cf1315b32eba
+Best match: paramiko 2.4.0
+Processing paramiko-2.4.0.tar.gz
+Writing /tmp/easy_install-injxfuvi/paramiko-2.4.0/setup.cfg
+Running paramiko-2.4.0/setup.py -q bdist_egg --dist-dir /tmp/easy_install-injxfuvi/paramiko-2.4.0/egg-dist-tmp-loxlpa8z
+zip_safe flag not set; analyzing archive contents...
+Copying paramiko-2.4.0-py3.6.egg to /Users/javedalam/anaconda3/lib/python3.6/site-packages
+Adding paramiko 2.4.0 to easy-install.pth file
+
+Installed /Users/javedalam/anaconda3/lib/python3.6/site-packages/paramiko-2.4.0-py3.6.egg
+Searching for pyasn1>=0.1.7
+Reading https://pypi.python.org/simple/pyasn1/
+Downloading https://pypi.python.org/packages/c5/42/b5b5c132b6d11778f24e2f2d7b4ccac644b233c06492e093652eadbdd93b/pyasn1-0.4.2-py3.6.egg#md5=f7416ad49b1ab404d83cfba0e9f63a6f
+Best match: pyasn1 0.4.2
+Processing pyasn1-0.4.2-py3.6.egg
+Moving pyasn1-0.4.2-py3.6.egg to /Users/javedalam/anaconda3/lib/python3.6/site-packages
+Adding pyasn1 0.4.2 to easy-install.pth file
+
+Installed /Users/javedalam/anaconda3/lib/python3.6/site-packages/pyasn1-0.4.2-py3.6.egg
+Searching for pynacl>=1.0.1
+Reading https://pypi.python.org/simple/pynacl/
+Downloading https://pypi.python.org/packages/08/19/cf56e60efd122fa6d2228118a9b345455b13ffe16a14be81d025b03b261f/PyNaCl-1.2.1.tar.gz#md5=1db3e111775fbe6b66772ff30af7a956
+Best match: PyNaCl 1.2.1
+Processing PyNaCl-1.2.1.tar.gz
+Writing /tmp/easy_install-66y7jtd8/PyNaCl-1.2.1/setup.cfg
+Running PyNaCl-1.2.1/setup.py -q bdist_egg --dist-dir /tmp/easy_install-66y7jtd8/PyNaCl-1.2.1/egg-dist-tmp-_fdef6dp
+warning: no previously-included files matching '__pycache__/*' found anywhere in distribution
+warning: no previously-included files found matching '.travis.yml'
+warning: no previously-included files found matching '.travis'
+warning: no previously-included files found matching '.travis/install.sh'
+warning: no previously-included files found matching '.travis/run.sh'
+warning: no previously-included files found matching '.readthedocs.yml'
+warning: no previously-included files found matching '.coveragerc'
+warning: no previously-included files found matching 'tasks.py'
+warning: no previously-included files found matching 'Jenkinsfile'
+warning: no previously-included files found matching '.jenkins'
+warning: no previously-included files found matching '.jenkins/Jenkinsfile-pynacl-wheel-builder'
+checking build system type... x86_64-apple-darwin17.3.0
+checking host system type... x86_64-apple-darwin17.3.0
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /private/tmp/easy_install-66y7jtd8/PyNaCl-1.2.1/src/libsodium/build-aux/install-sh -c -d
+checking for gawk... no
+checking for mawk... no
+checking for nawk... no
+checking for awk... awk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking whether UID '0' is supported by ustar format... yes
+checking whether GID '0' is supported by ustar format... yes
+checking how to create a ustar tar archive... gnutar
+checking whether make supports nested variables... (cached) yes
+checking whether to enable maintainer-specific portions of Makefiles... no
+checking for style of include used by make... GNU
+checking for gcc... gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking whether gcc understands -c and -o together... yes
+checking dependency style of gcc... none
+checking for a sed that does not truncate output... /usr/bin/sed
+checking how to run the C preprocessor... gcc -E
+checking for grep that handles long lines and -e... /usr/bin/grep
+checking for egrep... /usr/bin/grep -E
+checking whether gcc is Clang... yes
+checking whether Clang needs flag to prevent "argument unused" warning when linking with -pthread... -Qunused-arguments
+checking for joinable pthread attribute... PTHREAD_CREATE_JOINABLE
+checking whether more special flags are required for pthreads... no
+checking for PTHREAD_PRIO_INHERIT... yes
+checking for gcc option to accept ISO C99... none needed
+checking dependency style of gcc... none
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking minix/config.h usability... no
+checking minix/config.h presence... no
+checking for minix/config.h... no
+checking whether it is safe to define __EXTENSIONS__... yes
+checking for __native_client__ defined... no
+checking for _FORTIFY_SOURCE defined... no
+checking whether C compiler accepts -D_FORTIFY_SOURCE=2... yes
+checking whether C compiler accepts -fvisibility=hidden... yes
+checking whether C compiler accepts -fPIC... yes
+checking whether C compiler accepts -fPIE... yes
+checking whether the linker accepts -pie... yes
+checking whether C compiler accepts -fno-strict-aliasing... yes
+checking whether C compiler accepts -fno-strict-overflow... yes
+checking whether C compiler accepts -fstack-protector... yes
+checking whether the linker accepts -fstack-protector... yes
+checking whether C compiler accepts -Wwrite-strings... yes
+checking whether C compiler accepts -Wdiv-by-zero... yes
+checking whether C compiler accepts -Wsometimes-uninitialized... yes
+checking whether C compiler accepts  -Wall... yes
+checking whether C compiler accepts  -Wall -Wextra... yes
+checking for clang... yes
+checking whether C compiler accepts  -Wall -Wextra -Wno-unknown-warning-option... yes
+checking whether C compiler accepts  -Wall -Wextra -Wno-unknown-warning-option -Wbad-function-cast... yes
+checking whether C compiler accepts  -Wall -Wextra -Wno-unknown-warning-option -Wbad-function-cast -Wcast-align... yes
+checking whether C compiler accepts  -Wall -Wextra -Wno-unknown-warning-option -Wbad-function-cast -Wcast-align -Wcast-qual... yes
+checking whether C compiler accepts  -Wall -Wextra -Wno-unknown-warning-option -Wbad-function-cast -Wcast-align -Wcast-qual -Wduplicated-cond... yes
+checking whether C compiler accepts  -Wall -Wextra -Wno-unknown-warning-option -Wbad-function-cast -Wcast-align -Wcast-qual -Wduplicated-cond -Wfloat-equal... yes
+checking whether C compiler accepts  -Wall -Wextra -Wno-unknown-warning-option -Wbad-function-cast -Wcast-align -Wcast-qual -Wduplicated-cond -Wfloat-equal -Wformat=2... yes
+checking whether C compiler accepts  -Wall -Wextra -Wno-unknown-warning-option -Wbad-function-cast -Wcast-align -Wcast-qual -Wduplicated-cond -Wfloat-equal -Wformat=2 -Wmissing-declarations... yes
+checking whether C compiler accepts  -Wall -Wextra -Wno-unknown-warning-option -Wbad-function-cast -Wcast-align -Wcast-qual -Wduplicated-cond -Wfloat-equal -Wformat=2 -Wmissing-declarations -Wmissing-prototypes... yes
+checking whether C compiler accepts  -Wall -Wextra -Wno-unknown-warning-option -Wbad-function-cast -Wcast-align -Wcast-qual -Wduplicated-cond -Wfloat-equal -Wformat=2 -Wmissing-declarations -Wmissing-prototypes -Wnested-externs... yes
+checking whether C compiler accepts  -Wall -Wextra -Wno-unknown-warning-option -Wbad-function-cast -Wcast-align -Wcast-qual -Wduplicated-cond -Wfloat-equal -Wformat=2 -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-type-limits... yes
+checking whether C compiler accepts  -Wall -Wextra -Wno-unknown-warning-option -Wbad-function-cast -Wcast-align -Wcast-qual -Wduplicated-cond -Wfloat-equal -Wformat=2 -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-type-limits -Wno-unknown-pragmas... yes
+checking whether C compiler accepts  -Wall -Wextra -Wno-unknown-warning-option -Wbad-function-cast -Wcast-align -Wcast-qual -Wduplicated-cond -Wfloat-equal -Wformat=2 -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-type-limits -Wno-unknown-pragmas -Wnormalized=id... yes
+checking whether C compiler accepts  -Wall -Wextra -Wno-unknown-warning-option -Wbad-function-cast -Wcast-align -Wcast-qual -Wduplicated-cond -Wfloat-equal -Wformat=2 -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-type-limits -Wno-unknown-pragmas -Wnormalized=id -Wnull-dereference... yes
+checking whether C compiler accepts  -Wall -Wextra -Wno-unknown-warning-option -Wbad-function-cast -Wcast-align -Wcast-qual -Wduplicated-cond -Wfloat-equal -Wformat=2 -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-type-limits -Wno-unknown-pragmas -Wnormalized=id -Wnull-dereference -Wold-style-declaration... yes
+checking whether C compiler accepts  -Wall -Wextra -Wno-unknown-warning-option -Wbad-function-cast -Wcast-align -Wcast-qual -Wduplicated-cond -Wfloat-equal -Wformat=2 -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-type-limits -Wno-unknown-pragmas -Wnormalized=id -Wnull-dereference -Wold-style-declaration -Wpointer-arith... yes
+checking whether C compiler accepts  -Wall -Wextra -Wno-unknown-warning-option -Wbad-function-cast -Wcast-align -Wcast-qual -Wduplicated-cond -Wfloat-equal -Wformat=2 -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-type-limits -Wno-unknown-pragmas -Wnormalized=id -Wnull-dereference -Wold-style-declaration -Wpointer-arith -Wredundant-decls... yes
+checking whether C compiler accepts  -Wall -Wextra -Wno-unknown-warning-option -Wbad-function-cast -Wcast-align -Wcast-qual -Wduplicated-cond -Wfloat-equal -Wformat=2 -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-type-limits -Wno-unknown-pragmas -Wnormalized=id -Wnull-dereference -Wold-style-declaration -Wpointer-arith -Wredundant-decls -Wshorten-64-to-32... yes
+checking whether C compiler accepts  -Wall -Wextra -Wno-unknown-warning-option -Wbad-function-cast -Wcast-align -Wcast-qual -Wduplicated-cond -Wfloat-equal -Wformat=2 -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-type-limits -Wno-unknown-pragmas -Wnormalized=id -Wnull-dereference -Wold-style-declaration -Wpointer-arith -Wredundant-decls -Wshorten-64-to-32 -Wstrict-prototypes... yes
+checking whether C compiler accepts  -Wall -Wextra -Wno-unknown-warning-option -Wbad-function-cast -Wcast-align -Wcast-qual -Wduplicated-cond -Wfloat-equal -Wformat=2 -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-type-limits -Wno-unknown-pragmas -Wnormalized=id -Wnull-dereference -Wold-style-declaration -Wpointer-arith -Wredundant-decls -Wshorten-64-to-32 -Wstrict-prototypes -Wswitch-enum... yes
+checking whether C compiler accepts  -Wall -Wextra -Wno-unknown-warning-option -Wbad-function-cast -Wcast-align -Wcast-qual -Wduplicated-cond -Wfloat-equal -Wformat=2 -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-type-limits -Wno-unknown-pragmas -Wnormalized=id -Wnull-dereference -Wold-style-declaration -Wpointer-arith -Wredundant-decls -Wshorten-64-to-32 -Wstrict-prototypes -Wswitch-enum -Wvariable-decl... yes
+checking whether the linker accepts -Wl,-z,relro... no
+checking whether the linker accepts -Wl,-z,now... no
+checking whether the linker accepts -Wl,-z,noexecstack... no
+checking for a broken clang + AVX512 combination... no
+checking whether segmentation violations can be caught when using the C compiler... yes
+checking whether SIGABRT can be caught when using the C compiler... yes
+checking how to print strings... printf
+checking for a sed that does not truncate output... (cached) /usr/bin/sed
+checking for fgrep... /usr/bin/grep -F
+checking for ld used by gcc... /Library/Developer/CommandLineTools/usr/bin/ld
+checking if the linker (/Library/Developer/CommandLineTools/usr/bin/ld) is GNU ld... no
+checking for BSD- or MS-compatible name lister (nm)... /usr/bin/nm -B
+checking the name lister (/usr/bin/nm -B) interface... BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... 196608
+checking how to convert x86_64-apple-darwin17.3.0 file names to x86_64-apple-darwin17.3.0 format... func_convert_file_noop
+checking how to convert x86_64-apple-darwin17.3.0 file names to toolchain format... func_convert_file_noop
+checking for /Library/Developer/CommandLineTools/usr/bin/ld option to reload object files... -r
+checking for objdump... objdump
+checking how to recognize dependent libraries... pass_all
+checking for dlltool... no
+checking how to associate runtime and link libraries... printf %s\n
+checking for ar... ar
+checking for archiver @FILE support... no
+checking for strip... strip
+checking for ranlib... ranlib
+checking command to parse /usr/bin/nm -B output from gcc object... ok
+checking for sysroot... no
+checking for a working dd... /bin/dd
+checking how to truncate binary pipes... /bin/dd bs=4096 count=1
+checking for mt... no
+checking if : is a manifest tool... no
+checking for dsymutil... dsymutil
+checking for nmedit... nmedit
+checking for lipo... lipo
+checking for otool... otool
+checking for otool64... no
+checking for -single_module linker flag... yes
+checking for -exported_symbols_list linker flag... yes
+checking for -force_load linker flag... yes
+checking for dlfcn.h... yes
+checking for objdir... .libs
+checking if gcc supports -fno-rtti -fno-exceptions... yes
+checking for gcc option to produce PIC... -fno-common -DPIC
+checking if gcc PIC flag -fno-common -DPIC works... yes
+checking if gcc static flag -static works... no
+checking if gcc supports -c -o file.o... yes
+checking if gcc supports -c -o file.o... (cached) yes
+checking whether the gcc linker (/Library/Developer/CommandLineTools/usr/bin/ld) supports shared libraries... yes
+checking dynamic linker characteristics... darwin17.3.0 dyld
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... no
+checking whether to build static libraries... yes
+checking for ar... (cached) ar
+checking whether C compiler accepts -mmmx... yes
+checking for MMX instructions set... yes
+checking whether C compiler accepts -mmmx... (cached) yes
+checking whether C compiler accepts -msse2... yes
+checking for SSE2 instructions set... yes
+checking whether C compiler accepts -msse2... (cached) yes
+checking whether C compiler accepts -msse3... yes
+checking for SSE3 instructions set... yes
+checking whether C compiler accepts -msse3... (cached) yes
+checking whether C compiler accepts -mssse3... yes
+checking for SSSE3 instructions set... yes
+checking whether C compiler accepts -mssse3... (cached) yes
+checking whether C compiler accepts -msse4.1... yes
+checking for SSE4.1 instructions set... yes
+checking whether C compiler accepts -msse4.1... (cached) yes
+checking whether C compiler accepts -mavx... yes
+checking for AVX instructions set... yes
+checking whether C compiler accepts -mavx... (cached) yes
+checking whether C compiler accepts -mavx2... yes
+checking for AVX2 instructions set... yes
+checking whether C compiler accepts -mavx2... (cached) yes
+checking if _mm256_broadcastsi128_si256 is correctly defined... yes
+checking whether C compiler accepts -mavx512f... yes
+checking for AVX512F instructions set... yes
+checking whether C compiler accepts -mavx512f... (cached) yes
+checking whether C compiler accepts -maes... yes
+checking whether C compiler accepts -mpclmul... yes
+checking for AESNI instructions set and PCLMULQDQ... yes
+checking whether C compiler accepts -maes... (cached) yes
+checking whether C compiler accepts -mpclmul... (cached) yes
+checking sys/mman.h usability... yes
+checking sys/mman.h presence... yes
+checking for sys/mman.h... yes
+checking intrin.h usability... no
+checking intrin.h presence... no
+checking for intrin.h... no
+checking if _xgetbv() is available... no
+checking for inline... inline
+checking whether byte ordering is bigendian... (cached) no
+checking whether __STDC_LIMIT_MACROS is required... no
+checking whether we can use x86_64 asm code... yes
+checking whether we can assemble AVX opcodes... yes
+checking for 128-bit arithmetic... yes
+checking for cpuid instruction... yes
+checking if the .private_extern asm directive is supported... yes
+checking if the .hidden asm directive is supported... no
+checking if weak symbols are supported... yes
+checking if data alignment is required... no
+checking if atomic operations are supported... yes
+checking for arc4random... yes
+checking for arc4random_buf... yes
+checking for mmap... yes
+checking for mlock... yes
+checking for madvise... yes
+checking for mprotect... yes
+checking for memset_s... yes
+checking for explicit_bzero... no
+checking for nanosleep... yes
+checking for posix_memalign... yes
+checking for getpid... yes
+checking if gcc/ld supports -Wl,--output-def... not needed, shared libraries are disabled
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating builds/Makefile
+config.status: creating contrib/Makefile
+config.status: creating dist-build/Makefile
+config.status: creating libsodium.pc
+config.status: creating libsodium-uninstalled.pc
+config.status: creating msvc-scripts/Makefile
+config.status: creating src/Makefile
+config.status: creating src/libsodium/Makefile
+config.status: creating src/libsodium/include/Makefile
+config.status: creating src/libsodium/include/sodium/version.h
+config.status: creating test/default/Makefile
+config.status: creating test/Makefile
+config.status: executing depfiles commands
+config.status: executing libtool commands
+Making all in builds
+make[1]: Nothing to be done for `all'.
+Making all in contrib
+make[1]: Nothing to be done for `all'.
+Making all in dist-build
+make[1]: Nothing to be done for `all'.
+Making all in msvc-scripts
+make[1]: Nothing to be done for `all'.
+Making all in src
+Making all in libsodium
+Making all in include
+make[3]: Nothing to be done for `all'.
+  CC       crypto_aead/chacha20poly1305/sodium/libsodium_la-aead_chacha20poly1305.lo
+  CC       crypto_aead/xchacha20poly1305/sodium/libsodium_la-aead_xchacha20poly1305.lo
+  CC       crypto_auth/libsodium_la-crypto_auth.lo
+  CC       crypto_auth/hmacsha256/libsodium_la-auth_hmacsha256.lo
+  CC       crypto_auth/hmacsha512/libsodium_la-auth_hmacsha512.lo
+  CC       crypto_auth/hmacsha512256/libsodium_la-auth_hmacsha512256.lo
+  CC       crypto_box/libsodium_la-crypto_box.lo
+  CC       crypto_box/libsodium_la-crypto_box_easy.lo
+  CC       crypto_box/libsodium_la-crypto_box_seal.lo
+  CC       crypto_box/curve25519xsalsa20poly1305/libsodium_la-box_curve25519xsalsa20poly1305.lo
+  CC       crypto_core/curve25519/ref10/libsodium_la-curve25519_ref10.lo
+  CC       crypto_core/hchacha20/libsodium_la-core_hchacha20.lo
+  CC       crypto_core/hsalsa20/ref2/libsodium_la-core_hsalsa20_ref2.lo
+  CC       crypto_core/hsalsa20/libsodium_la-core_hsalsa20.lo
+  CC       crypto_core/salsa/ref/libsodium_la-core_salsa_ref.lo
+  CC       crypto_generichash/libsodium_la-crypto_generichash.lo
+  CC       crypto_generichash/blake2b/libsodium_la-generichash_blake2.lo
+  CC       crypto_generichash/blake2b/ref/libsodium_la-blake2b-compress-ref.lo
+  CC       crypto_generichash/blake2b/ref/libsodium_la-blake2b-ref.lo
+  CC       crypto_generichash/blake2b/ref/libsodium_la-generichash_blake2b.lo
+  CC       crypto_hash/libsodium_la-crypto_hash.lo
+  CC       crypto_hash/sha256/libsodium_la-hash_sha256.lo
+  CC       crypto_hash/sha256/cp/libsodium_la-hash_sha256_cp.lo
+  CC       crypto_hash/sha512/libsodium_la-hash_sha512.lo
+  CC       crypto_hash/sha512/cp/libsodium_la-hash_sha512_cp.lo
+  CC       crypto_kdf/blake2b/libsodium_la-kdf_blake2b.lo
+  CC       crypto_kdf/libsodium_la-crypto_kdf.lo
+  CC       crypto_kx/libsodium_la-crypto_kx.lo
+  CC       crypto_onetimeauth/libsodium_la-crypto_onetimeauth.lo
+  CC       crypto_onetimeauth/poly1305/libsodium_la-onetimeauth_poly1305.lo
+  CC       crypto_onetimeauth/poly1305/donna/libsodium_la-poly1305_donna.lo
+  CC       crypto_pwhash/argon2/libsodium_la-argon2-core.lo
+  CC       crypto_pwhash/argon2/libsodium_la-argon2-encoding.lo
+  CC       crypto_pwhash/argon2/libsodium_la-argon2-fill-block-ref.lo
+  CC       crypto_pwhash/argon2/libsodium_la-argon2.lo
+  CC       crypto_pwhash/argon2/libsodium_la-blake2b-long.lo
+  CC       crypto_pwhash/argon2/libsodium_la-pwhash_argon2i.lo
+  CC       crypto_pwhash/argon2/libsodium_la-pwhash_argon2id.lo
+  CC       crypto_pwhash/libsodium_la-crypto_pwhash.lo
+  CC       crypto_scalarmult/libsodium_la-crypto_scalarmult.lo
+  CC       crypto_scalarmult/curve25519/libsodium_la-scalarmult_curve25519.lo
+  CC       crypto_secretbox/libsodium_la-crypto_secretbox.lo
+  CC       crypto_secretbox/libsodium_la-crypto_secretbox_easy.lo
+  CC       crypto_secretbox/xsalsa20poly1305/libsodium_la-secretbox_xsalsa20poly1305.lo
+  CC       crypto_secretstream/xchacha20poly1305/libsodium_la-secretstream_xchacha20poly1305.lo
+  CC       crypto_shorthash/libsodium_la-crypto_shorthash.lo
+  CC       crypto_shorthash/siphash24/libsodium_la-shorthash_siphash24.lo
+  CC       crypto_shorthash/siphash24/ref/libsodium_la-shorthash_siphash24_ref.lo
+  CC       crypto_sign/libsodium_la-crypto_sign.lo
+  CC       crypto_sign/ed25519/libsodium_la-sign_ed25519.lo
+  CC       crypto_sign/ed25519/ref10/libsodium_la-keypair.lo
+  CC       crypto_sign/ed25519/ref10/libsodium_la-open.lo
+  CC       crypto_sign/ed25519/ref10/libsodium_la-sign.lo
+  CC       crypto_stream/chacha20/libsodium_la-stream_chacha20.lo
+  CC       crypto_stream/chacha20/ref/libsodium_la-chacha20_ref.lo
+  CC       crypto_stream/libsodium_la-crypto_stream.lo
+  CC       crypto_stream/salsa20/libsodium_la-stream_salsa20.lo
+  CC       crypto_stream/xsalsa20/libsodium_la-stream_xsalsa20.lo
+  CC       crypto_verify/sodium/libsodium_la-verify.lo
+  CC       randombytes/libsodium_la-randombytes.lo
+  CC       sodium/libsodium_la-codecs.lo
+  CC       sodium/libsodium_la-core.lo
+  CC       sodium/libsodium_la-runtime.lo
+  CC       sodium/libsodium_la-utils.lo
+  CC       sodium/libsodium_la-version.lo
+  CC       randombytes/salsa20/libsodium_la-randombytes_salsa20_random.lo
+  CC       randombytes/sysrandom/libsodium_la-randombytes_sysrandom.lo
+  CC       crypto_scalarmult/curve25519/donna_c64/libsodium_la-curve25519_donna_c64.lo
+  CPPAS    crypto_stream/salsa20/xmm6/libsodium_la-salsa20_xmm6-asm.lo
+  CC       crypto_stream/salsa20/xmm6/libsodium_la-salsa20_xmm6.lo
+  CC       crypto_scalarmult/curve25519/sandy2x/libsodium_la-curve25519_sandy2x.lo
+  CC       crypto_scalarmult/curve25519/sandy2x/libsodium_la-fe51_invert.lo
+  CC       crypto_scalarmult/curve25519/sandy2x/libsodium_la-fe_frombytes_sandy2x.lo
+  CPPAS    crypto_scalarmult/curve25519/sandy2x/libsodium_la-sandy2x.lo
+  CC       crypto_box/curve25519xchacha20poly1305/libsodium_la-box_curve25519xchacha20poly1305.lo
+  CC       crypto_box/curve25519xchacha20poly1305/libsodium_la-box_seal_curve25519xchacha20poly1305.lo
+  CC       crypto_pwhash/scryptsalsa208sha256/libsodium_la-crypto_scrypt-common.lo
+  CC       crypto_pwhash/scryptsalsa208sha256/libsodium_la-scrypt_platform.lo
+  CC       crypto_pwhash/scryptsalsa208sha256/libsodium_la-pbkdf2-sha256.lo
+  CC       crypto_pwhash/scryptsalsa208sha256/libsodium_la-pwhash_scryptsalsa208sha256.lo
+  CC       crypto_pwhash/scryptsalsa208sha256/nosse/libsodium_la-pwhash_scryptsalsa208sha256_nosse.lo
+  CC       crypto_secretbox/xchacha20poly1305/libsodium_la-secretbox_xchacha20poly1305.lo
+  CC       crypto_shorthash/siphash24/libsodium_la-shorthash_siphashx24.lo
+  CC       crypto_shorthash/siphash24/ref/libsodium_la-shorthash_siphashx24_ref.lo
+  CC       crypto_sign/ed25519/ref10/libsodium_la-obsolete.lo
+  CC       crypto_stream/salsa2012/ref/libsodium_la-stream_salsa2012_ref.lo
+  CC       crypto_stream/salsa2012/libsodium_la-stream_salsa2012.lo
+  CC       crypto_stream/salsa208/ref/libsodium_la-stream_salsa208_ref.lo
+  CC       crypto_stream/salsa208/libsodium_la-stream_salsa208.lo
+  CC       crypto_stream/xchacha20/libsodium_la-stream_xchacha20.lo
+  CC       crypto_aead/aes256gcm/aesni/libaesni_la-aead_aes256gcm_aesni.lo
+  CCLD     libaesni.la
+libtool: warning: '-version-info/-version-number' is ignored for convenience libraries
+  CC       crypto_onetimeauth/poly1305/sse2/libsse2_la-poly1305_sse2.lo
+  CC       crypto_pwhash/scryptsalsa208sha256/sse/libsse2_la-pwhash_scryptsalsa208sha256_sse.lo
+  CCLD     libsse2.la
+libtool: warning: '-version-info/-version-number' is ignored for convenience libraries
+  CC       crypto_generichash/blake2b/ref/libssse3_la-blake2b-compress-ssse3.lo
+  CC       crypto_pwhash/argon2/libssse3_la-argon2-fill-block-ssse3.lo
+  CC       crypto_stream/chacha20/dolbeau/libssse3_la-chacha20_dolbeau-ssse3.lo
+  CCLD     libssse3.la
+libtool: warning: '-version-info/-version-number' is ignored for convenience libraries
+  CC       crypto_generichash/blake2b/ref/libsse41_la-blake2b-compress-sse41.lo
+  CCLD     libsse41.la
+libtool: warning: '-version-info/-version-number' is ignored for convenience libraries
+  CC       crypto_generichash/blake2b/ref/libavx2_la-blake2b-compress-avx2.lo
+  CC       crypto_pwhash/argon2/libavx2_la-argon2-fill-block-avx2.lo
+  CC       crypto_stream/chacha20/dolbeau/libavx2_la-chacha20_dolbeau-avx2.lo
+  CC       crypto_stream/salsa20/xmm6int/libavx2_la-salsa20_xmm6int-avx2.lo
+  CCLD     libavx2.la
+libtool: warning: '-version-info/-version-number' is ignored for convenience libraries
+  CC       crypto_pwhash/argon2/libavx512f_la-argon2-fill-block-avx512f.lo
+  CCLD     libavx512f.la
+libtool: warning: '-version-info/-version-number' is ignored for convenience libraries
+  CCLD     libsodium.la
+make[2]: Nothing to be done for `all-am'.
+Making all in test
+Making all in default
+make[2]: Nothing to be done for `all'.
+make[2]: Nothing to be done for `all-am'.
+make[1]: Nothing to be done for `all-am'.
+Making check in builds
+make[1]: Nothing to be done for `check'.
+Making check in contrib
+make[1]: Nothing to be done for `check'.
+Making check in dist-build
+make[1]: Nothing to be done for `check'.
+Making check in msvc-scripts
+make[1]: Nothing to be done for `check'.
+Making check in src
+Making check in libsodium
+Making check in include
+make[3]: Nothing to be done for `check'.
+make[3]: Nothing to be done for `check-am'.
+make[2]: Nothing to be done for `check-am'.
+Making check in test
+Making check in default
+/Library/Developer/CommandLineTools/usr/bin/make  aead_aes256gcm aead_chacha20poly1305 aead_xchacha20poly1305 auth auth2 auth3 auth5 auth6 auth7 box box2 box7 box8 box_easy box_easy2 box_seal box_seed chacha20 codecs core1 core2 core3 core4 core5 core6 ed25519_convert generichash generichash2 generichash3 hash hash3 kdf keygen kx metamorphic misuse onetimeauth onetimeauth2 onetimeauth7 pwhash_argon2i pwhash_argon2id randombytes scalarmult scalarmult2 scalarmult5 scalarmult6 scalarmult7 secretbox secretbox2 secretbox7 secretbox8 secretbox_easy secretbox_easy2 secretstream shorthash sign sodium_core sodium_utils sodium_version stream stream2 stream3 stream4 verify1 sodium_utils2 sodium_utils3 pwhash_scrypt pwhash_scrypt_ll siphashx24 xchacha20
+  CC       aead_aes256gcm.o
+  CCLD     aead_aes256gcm
+  CC       aead_chacha20poly1305.o
+  CCLD     aead_chacha20poly1305
+  CC       aead_xchacha20poly1305.o
+  CCLD     aead_xchacha20poly1305
+  CC       auth.o
+  CCLD     auth
+  CC       auth2.o
+  CCLD     auth2
+  CC       auth3.o
+  CCLD     auth3
+  CC       auth5.o
+  CCLD     auth5
+  CC       auth6.o
+  CCLD     auth6
+  CC       auth7.o
+  CCLD     auth7
+  CC       box.o
+  CCLD     box
+  CC       box2.o
+  CCLD     box2
+  CC       box7.o
+  CCLD     box7
+  CC       box8.o
+  CCLD     box8
+  CC       box_easy.o
+  CCLD     box_easy
+  CC       box_easy2.o
+  CCLD     box_easy2
+  CC       box_seal.o
+  CCLD     box_seal
+  CC       box_seed.o
+  CCLD     box_seed
+  CC       chacha20.o
+  CCLD     chacha20
+  CC       codecs.o
+  CCLD     codecs
+  CC       core1.o
+  CCLD     core1
+  CC       core2.o
+  CCLD     core2
+  CC       core3.o
+  CCLD     core3
+  CC       core4.o
+  CCLD     core4
+  CC       core5.o
+  CCLD     core5
+  CC       core6.o
+  CCLD     core6
+  CC       ed25519_convert.o
+  CCLD     ed25519_convert
+  CC       generichash.o
+  CCLD     generichash
+  CC       generichash2.o
+  CCLD     generichash2
+  CC       generichash3.o
+  CCLD     generichash3
+  CC       hash.o
+  CCLD     hash
+  CC       hash3.o
+  CCLD     hash3
+  CC       kdf.o
+  CCLD     kdf
+  CC       keygen.o
+  CCLD     keygen
+  CC       kx.o
+  CCLD     kx
+  CC       metamorphic.o
+  CCLD     metamorphic
+  CC       misuse.o
+  CCLD     misuse
+  CC       onetimeauth.o
+  CCLD     onetimeauth
+  CC       onetimeauth2.o
+  CCLD     onetimeauth2
+  CC       onetimeauth7.o
+  CCLD     onetimeauth7
+  CC       pwhash_argon2i.o
+  CCLD     pwhash_argon2i
+  CC       pwhash_argon2id.o
+  CCLD     pwhash_argon2id
+  CC       randombytes.o
+  CCLD     randombytes
+  CC       scalarmult.o
+  CCLD     scalarmult
+  CC       scalarmult2.o
+  CCLD     scalarmult2
+  CC       scalarmult5.o
+  CCLD     scalarmult5
+  CC       scalarmult6.o
+  CCLD     scalarmult6
+  CC       scalarmult7.o
+  CCLD     scalarmult7
+  CC       secretbox.o
+  CCLD     secretbox
+  CC       secretbox2.o
+  CCLD     secretbox2
+  CC       secretbox7.o
+  CCLD     secretbox7
+  CC       secretbox8.o
+  CCLD     secretbox8
+  CC       secretbox_easy.o
+  CCLD     secretbox_easy
+  CC       secretbox_easy2.o
+  CCLD     secretbox_easy2
+  CC       secretstream.o
+  CCLD     secretstream
+  CC       shorthash.o
+  CCLD     shorthash
+  CC       sign.o
+  CCLD     sign
+  CC       sodium_core.o
+  CCLD     sodium_core
+  CC       sodium_utils.o
+  CCLD     sodium_utils
+  CC       sodium_version.o
+  CCLD     sodium_version
+  CC       stream.o
+  CCLD     stream
+  CC       stream2.o
+  CCLD     stream2
+  CC       stream3.o
+  CCLD     stream3
+  CC       stream4.o
+  CCLD     stream4
+  CC       verify1.o
+  CCLD     verify1
+  CC       sodium_utils2.o
+  CCLD     sodium_utils2
+  CC       sodium_utils3.o
+  CCLD     sodium_utils3
+  CC       pwhash_scrypt.o
+  CCLD     pwhash_scrypt
+  CC       pwhash_scrypt_ll.o
+  CCLD     pwhash_scrypt_ll
+  CC       siphashx24.o
+  CCLD     siphashx24
+  CC       xchacha20.o
+  CCLD     xchacha20
+/Library/Developer/CommandLineTools/usr/bin/make  check-TESTS
+PASS: aead_aes256gcm
+PASS: aead_chacha20poly1305
+PASS: aead_xchacha20poly1305
+PASS: auth
+PASS: auth2
+PASS: auth3
+PASS: auth5
+PASS: auth6
+PASS: auth7
+PASS: box
+PASS: box2
+PASS: box7
+PASS: box8
+PASS: box_easy
+PASS: box_easy2
+PASS: box_seal
+PASS: box_seed
+PASS: chacha20
+PASS: codecs
+PASS: core1
+PASS: core2
+PASS: core3
+PASS: core4
+PASS: core5
+PASS: core6
+PASS: ed25519_convert
+PASS: generichash
+PASS: generichash2
+PASS: generichash3
+PASS: hash
+PASS: hash3
+PASS: kdf
+PASS: keygen
+PASS: kx
+PASS: metamorphic
+PASS: misuse
+PASS: onetimeauth
+PASS: onetimeauth2
+PASS: onetimeauth7
+PASS: pwhash_argon2i
+PASS: pwhash_argon2id
+PASS: randombytes
+PASS: scalarmult
+PASS: scalarmult2
+PASS: scalarmult5
+PASS: scalarmult6
+PASS: scalarmult7
+PASS: secretbox
+PASS: secretbox2
+PASS: secretbox7
+PASS: secretbox8
+PASS: secretbox_easy
+PASS: secretbox_easy2
+PASS: secretstream
+PASS: shorthash
+PASS: sign
+PASS: sodium_core
+PASS: sodium_utils
+PASS: sodium_version
+PASS: stream
+PASS: stream2
+PASS: stream3
+PASS: stream4
+PASS: verify1
+PASS: sodium_utils2
+PASS: sodium_utils3
+PASS: pwhash_scrypt
+PASS: pwhash_scrypt_ll
+PASS: siphashx24
+PASS: xchacha20
+============================================================================
+Testsuite summary for libsodium 1.0.15
+============================================================================
+# TOTAL: 70
+# PASS:  70
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+============================================================================
+make[2]: Nothing to be done for `check-am'.
+make[1]: Nothing to be done for `check-am'.
+Making install in builds
+make[2]: Nothing to be done for `install-exec-am'.
+make[2]: Nothing to be done for `install-data-am'.
+Making install in contrib
+make[2]: Nothing to be done for `install-exec-am'.
+make[2]: Nothing to be done for `install-data-am'.
+Making install in dist-build
+make[2]: Nothing to be done for `install-exec-am'.
+make[2]: Nothing to be done for `install-data-am'.
+Making install in msvc-scripts
+make[2]: Nothing to be done for `install-exec-am'.
+make[2]: Nothing to be done for `install-data-am'.
+Making install in src
+Making install in libsodium
+Making install in include
+make[4]: Nothing to be done for `install-exec-am'.
+ /private/tmp/easy_install-66y7jtd8/PyNaCl-1.2.1/src/libsodium/build-aux/install-sh -c -d '/private/tmp/easy_install-66y7jtd8/PyNaCl-1.2.1/build/temp.macosx-10.7-x86_64-3.6/include'
+ /private/tmp/easy_install-66y7jtd8/PyNaCl-1.2.1/src/libsodium/build-aux/install-sh -c -d '/private/tmp/easy_install-66y7jtd8/PyNaCl-1.2.1/build/temp.macosx-10.7-x86_64-3.6/include/sodium'
+ /usr/bin/install -c -m 644  /private/tmp/easy_install-66y7jtd8/PyNaCl-1.2.1/src/libsodium/src/libsodium/include/sodium/core.h /private/tmp/easy_install-66y7jtd8/PyNaCl-1.2.1/src/libsodium/src/libsodium/include/sodium/crypto_aead_aes256gcm.h /private/tmp/easy_install-66y7jtd8/PyNaCl-1.2.1/src/libsodium/src/libsodium/include/sodium/crypto_aead_chacha20poly1305.h /private/tmp/easy_install-66y7jtd8/PyNaCl-1.2.1/src/libsodium/src/libsodium/include/sodium/crypto_aead_xchacha20poly1305.h /private/tmp/easy_install-66y7jtd8/PyNaCl-1.2.1/src/libsodium/src/libsodium/include/sodium/crypto_auth.h /private/tmp/easy_install-66y7jtd8/PyNaCl-1.2.1/src/libsodium/src/libsodium/include/sodium/crypto_auth_hmacsha256.h /private/tmp/easy_install-66y7jtd8/PyNaCl-1.2.1/src/libsodium/src/libsodium/include/sodium/crypto_auth_hmacsha512.h /private/tmp/easy_install-66y7jtd8/PyNaCl-1.2.1/src/libsodium/src/libsodium/include/sodium/crypto_auth_hmacsha512256.h /private/tmp/easy_install-66y7jtd8/PyNaCl-1.2.1/src/libsodium/src/libsodium/include/sodium/crypto_box.h /private/tmp/easy_install-66y7jtd8/PyNaCl-1.2.1/src/libsodium/src/libsodium/include/sodium/crypto_box_curve25519xchacha20poly1305.h /private/tmp/easy_install-66y7jtd8/PyNaCl-1.2.1/src/libsodium/src/libsodium/include/sodium/crypto_box_curve25519xsalsa20poly1305.h /private/tmp/easy_install-66y7jtd8/PyNaCl-1.2.1/src/libsodium/src/libsodium/include/sodium/crypto_core_hchacha20.h /private/tmp/easy_install-66y7jtd8/PyNaCl-1.2.1/src/libsodium/src/libsodium/include/sodium/crypto_core_hsalsa20.h /private/tmp/easy_install-66y7jtd8/PyNaCl-1.2.1/src/libsodium/src/libsodium/include/sodium/crypto_core_salsa20.h /private/tmp/easy_install-66y7jtd8/PyNaCl-1.2.1/src/libsodium/src/libsodium/include/sodium/crypto_core_salsa2012.h /private/tmp/easy_install-66y7jtd8/PyNaCl-1.2.1/src/libsodium/src/libsodium/include/sodium/crypto_core_salsa208.h /private/tmp/easy_install-66y7jtd8/PyNaCl-1.2.1/src/libsodium/src/libsodium/include/sodium/crypto_generichash.h /private/tmp/easy_install-66y7jtd8/PyNaCl-1.2.1/src/libsodium/src/libsodium/include/sodium/crypto_generichash_blake2b.h /private/tmp/easy_install-66y7jtd8/PyNaCl-1.2.1/src/libsodium/src/libsodium/include/sodium/crypto_hash.h /private/tmp/easy_install-66y7jtd8/PyNaCl-1.2.1/src/libsodium/src/libsodium/include/sodium/crypto_hash_sha256.h /private/tmp/easy_install-66y7jtd8/PyNaCl-1.2.1/src/libsodium/src/libsodium/include/sodium/crypto_hash_sha512.h /private/tmp/easy_install-66y7jtd8/PyNaCl-1.2.1/src/libsodium/src/libsodium/include/sodium/crypto_kdf.h /private/tmp/easy_install-66y7jtd8/PyNaCl-1.2.1/src/libsodium/src/libsodium/include/sodium/crypto_kdf_blake2b.h /private/tmp/easy_install-66y7jtd8/PyNaCl-1.2.1/src/libsodium/src/libsodium/include/sodium/crypto_kx.h /private/tmp/easy_install-66y7jtd8/PyNaCl-1.2.1/src/libsodium/src/libsodium/include/sodium/crypto_onetimeauth.h /private/tmp/easy_install-66y7jtd8/PyNaCl-1.2.1/src/libsodium/src/libsodium/include/sodium/crypto_onetimeauth_poly1305.h /private/tmp/easy_install-66y7jtd8/PyNaCl-1.2.1/src/libsodium/src/libsodium/include/sodium/crypto_pwhash.h /private/tmp/easy_install-66y7jtd8/PyNaCl-1.2.1/src/libsodium/src/libsodium/include/sodium/crypto_pwhash_argon2i.h /private/tmp/easy_install-66y7jtd8/PyNaCl-1.2.1/src/libsodium/src/libsodium/include/sodium/crypto_pwhash_argon2id.h /private/tmp/easy_install-66y7jtd8/PyNaCl-1.2.1/src/libsodium/src/libsodium/include/sodium/crypto_pwhash_scryptsalsa208sha256.h /private/tmp/easy_install-66y7jtd8/PyNaCl-1.2.1/src/libsodium/src/libsodium/include/sodium/crypto_scalarmult.h /private/tmp/easy_install-66y7jtd8/PyNaCl-1.2.1/src/libsodium/src/libsodium/include/sodium/crypto_scalarmult_curve25519.h /private/tmp/easy_install-66y7jtd8/PyNaCl-1.2.1/src/libsodium/src/libsodium/include/sodium/crypto_secretbox.h /private/tmp/easy_install-66y7jtd8/PyNaCl-1.2.1/src/libsodium/src/libsodium/include/sodium/crypto_secretbox_xchacha20poly1305.h /private/tmp/easy_install-66y7jtd8/PyNaCl-1.2.1/src/libsodium/src/libsodium/include/sodium/crypto_secretbox_xsalsa20poly1305.h /private/tmp/easy_install-66y7jtd8/PyNaCl-1.2.1/src/libsodium/src/libsodium/include/sodium/crypto_secretstream_xchacha20poly1305.h /private/tmp/easy_install-66y7jtd8/PyNaCl-1.2.1/src/libsodium/src/libsodium/include/sodium/crypto_shorthash.h /private/tmp/easy_install-66y7jtd8/PyNaCl-1.2.1/src/libsodium/src/libsodium/include/sodium/crypto_shorthash_siphash24.h /private/tmp/easy_install-66y7jtd8/PyNaCl-1.2.1/src/libsodium/src/libsodium/include/sodium/crypto_sign.h /private/tmp/easy_install-66y7jtd8/PyNaCl-1.2.1/src/libsodium/src/libsodium/include/sodium/crypto_sign_ed25519.h '/private/tmp/easy_install-66y7jtd8/PyNaCl-1.2.1/build/temp.macosx-10.7-x86_64-3.6/include/sodium'
+ /private/tmp/easy_install-66y7jtd8/PyNaCl-1.2.1/src/libsodium/build-aux/install-sh -c -d '/private/tmp/easy_install-66y7jtd8/PyNaCl-1.2.1/build/temp.macosx-10.7-x86_64-3.6/include/sodium'
+ /usr/bin/install -c -m 644  /private/tmp/easy_install-66y7jtd8/PyNaCl-1.2.1/src/libsodium/src/libsodium/include/sodium/crypto_sign_edwards25519sha512batch.h /private/tmp/easy_install-66y7jtd8/PyNaCl-1.2.1/src/libsodium/src/libsodium/include/sodium/crypto_stream.h /private/tmp/easy_install-66y7jtd8/PyNaCl-1.2.1/src/libsodium/src/libsodium/include/sodium/crypto_stream_chacha20.h /private/tmp/easy_install-66y7jtd8/PyNaCl-1.2.1/src/libsodium/src/libsodium/include/sodium/crypto_stream_salsa20.h /private/tmp/easy_install-66y7jtd8/PyNaCl-1.2.1/src/libsodium/src/libsodium/include/sodium/crypto_stream_salsa2012.h /private/tmp/easy_install-66y7jtd8/PyNaCl-1.2.1/src/libsodium/src/libsodium/include/sodium/crypto_stream_salsa208.h /private/tmp/easy_install-66y7jtd8/PyNaCl-1.2.1/src/libsodium/src/libsodium/include/sodium/crypto_stream_xchacha20.h /private/tmp/easy_install-66y7jtd8/PyNaCl-1.2.1/src/libsodium/src/libsodium/include/sodium/crypto_stream_xsalsa20.h /private/tmp/easy_install-66y7jtd8/PyNaCl-1.2.1/src/libsodium/src/libsodium/include/sodium/crypto_verify_16.h /private/tmp/easy_install-66y7jtd8/PyNaCl-1.2.1/src/libsodium/src/libsodium/include/sodium/crypto_verify_32.h /private/tmp/easy_install-66y7jtd8/PyNaCl-1.2.1/src/libsodium/src/libsodium/include/sodium/crypto_verify_64.h /private/tmp/easy_install-66y7jtd8/PyNaCl-1.2.1/src/libsodium/src/libsodium/include/sodium/export.h /private/tmp/easy_install-66y7jtd8/PyNaCl-1.2.1/src/libsodium/src/libsodium/include/sodium/randombytes.h /private/tmp/easy_install-66y7jtd8/PyNaCl-1.2.1/src/libsodium/src/libsodium/include/sodium/randombytes_salsa20_random.h /private/tmp/easy_install-66y7jtd8/PyNaCl-1.2.1/src/libsodium/src/libsodium/include/sodium/randombytes_sysrandom.h /private/tmp/easy_install-66y7jtd8/PyNaCl-1.2.1/src/libsodium/src/libsodium/include/sodium/runtime.h /private/tmp/easy_install-66y7jtd8/PyNaCl-1.2.1/src/libsodium/src/libsodium/include/sodium/utils.h '/private/tmp/easy_install-66y7jtd8/PyNaCl-1.2.1/build/temp.macosx-10.7-x86_64-3.6/include/sodium'
+ /usr/bin/install -c -m 644  /private/tmp/easy_install-66y7jtd8/PyNaCl-1.2.1/src/libsodium/src/libsodium/include/sodium.h '/private/tmp/easy_install-66y7jtd8/PyNaCl-1.2.1/build/temp.macosx-10.7-x86_64-3.6/include/.'
+ /private/tmp/easy_install-66y7jtd8/PyNaCl-1.2.1/src/libsodium/build-aux/install-sh -c -d '/private/tmp/easy_install-66y7jtd8/PyNaCl-1.2.1/build/temp.macosx-10.7-x86_64-3.6/include'
+ /private/tmp/easy_install-66y7jtd8/PyNaCl-1.2.1/src/libsodium/build-aux/install-sh -c -d '/private/tmp/easy_install-66y7jtd8/PyNaCl-1.2.1/build/temp.macosx-10.7-x86_64-3.6/include/sodium'
+ /usr/bin/install -c -m 644  sodium/version.h '/private/tmp/easy_install-66y7jtd8/PyNaCl-1.2.1/build/temp.macosx-10.7-x86_64-3.6/include/sodium'
+ /private/tmp/easy_install-66y7jtd8/PyNaCl-1.2.1/src/libsodium/build-aux/install-sh -c -d '/private/tmp/easy_install-66y7jtd8/PyNaCl-1.2.1/build/temp.macosx-10.7-x86_64-3.6/lib'
+ /bin/sh ../../libtool   --mode=install /usr/bin/install -c   libsodium.la '/private/tmp/easy_install-66y7jtd8/PyNaCl-1.2.1/build/temp.macosx-10.7-x86_64-3.6/lib'
+libtool: install: /usr/bin/install -c .libs/libsodium.lai /private/tmp/easy_install-66y7jtd8/PyNaCl-1.2.1/build/temp.macosx-10.7-x86_64-3.6/lib/libsodium.la
+libtool: install: /usr/bin/install -c .libs/libsodium.a /private/tmp/easy_install-66y7jtd8/PyNaCl-1.2.1/build/temp.macosx-10.7-x86_64-3.6/lib/libsodium.a
+libtool: install: chmod 644 /private/tmp/easy_install-66y7jtd8/PyNaCl-1.2.1/build/temp.macosx-10.7-x86_64-3.6/lib/libsodium.a
+libtool: install: ranlib /private/tmp/easy_install-66y7jtd8/PyNaCl-1.2.1/build/temp.macosx-10.7-x86_64-3.6/lib/libsodium.a
+make[4]: Nothing to be done for `install-data-am'.
+make[3]: Nothing to be done for `install-exec-am'.
+make[3]: Nothing to be done for `install-data-am'.
+Making install in test
+Making install in default
+make[3]: Nothing to be done for `install-exec-am'.
+make[3]: Nothing to be done for `install-data-am'.
+make[3]: Nothing to be done for `install-exec-am'.
+make[3]: Nothing to be done for `install-data-am'.
+make[2]: Nothing to be done for `install-exec-am'.
+ /private/tmp/easy_install-66y7jtd8/PyNaCl-1.2.1/src/libsodium/build-aux/install-sh -c -d '/private/tmp/easy_install-66y7jtd8/PyNaCl-1.2.1/build/temp.macosx-10.7-x86_64-3.6/lib/pkgconfig'
+ /usr/bin/install -c -m 644 libsodium.pc '/private/tmp/easy_install-66y7jtd8/PyNaCl-1.2.1/build/temp.macosx-10.7-x86_64-3.6/lib/pkgconfig'
+build/temp.macosx-10.7-x86_64-3.6/_sodium.c:3902:10: warning: implicit declaration of function 'crypto_pwhash_str_alg' is invalid in C99 [-Wimplicit-function-declaration]
+  return crypto_pwhash_str_alg(x0, x1, x2, x3, x4, x5);
+         ^
+build/temp.macosx-10.7-x86_64-3.6/_sodium.c:3902:10: warning: this function declaration is not a prototype [-Wstrict-prototypes]
+build/temp.macosx-10.7-x86_64-3.6/_sodium.c:3979:10: warning: implicit declaration of function 'crypto_pwhash_str_needs_rehash' is invalid in C99
+      [-Wimplicit-function-declaration]
+  return crypto_pwhash_str_needs_rehash(x0, x1, x2);
+         ^
+build/temp.macosx-10.7-x86_64-3.6/_sodium.c:3979:10: warning: this function declaration is not a prototype [-Wstrict-prototypes]
+4 warnings generated.
+creating /Users/javedalam/anaconda3/lib/python3.6/site-packages/PyNaCl-1.2.1-py3.6-macosx-10.7-x86_64.egg
+Extracting PyNaCl-1.2.1-py3.6-macosx-10.7-x86_64.egg to /Users/javedalam/anaconda3/lib/python3.6/site-packages
+Adding PyNaCl 1.2.1 to easy-install.pth file
+
+Installed /Users/javedalam/anaconda3/lib/python3.6/site-packages/PyNaCl-1.2.1-py3.6-macosx-10.7-x86_64.egg
+Searching for bcrypt>=3.1.3
+Reading https://pypi.python.org/simple/bcrypt/
+Downloading https://pypi.python.org/packages/f3/ec/bb6b384b5134fd881b91b6aa3a88ccddaad0103857760711a5ab8c799358/bcrypt-3.1.4.tar.gz#md5=8408abc974446e64862a9742104e97b6
+Best match: bcrypt 3.1.4
+Processing bcrypt-3.1.4.tar.gz
+Writing /tmp/easy_install-jeppzfme/bcrypt-3.1.4/setup.cfg
+Running bcrypt-3.1.4/setup.py -q bdist_egg --dist-dir /tmp/easy_install-jeppzfme/bcrypt-3.1.4/egg-dist-tmp-hgrpt74k
+warning: no previously-included files found matching 'requirements.txt'
+warning: no previously-included files found matching 'tasks.py'
+warning: no previously-included files found matching '.travis.yml'
+warning: no previously-included files found matching 'wheel-scripts'
+warning: no previously-included files found matching 'Jenkinsfile'
+warning: no previously-included files found matching '.jenkins'
+warning: no previously-included files matching '*' found under directory '.jenkins'
+warning: no previously-included files matching '*' found under directory 'wheel-scripts'
+no previously-included directories found matching '.travis'
+src/_csrc/bcrypt.c:205:18: warning: initializing 'const u_int8_t *' (aka 'const unsigned char *') with an expression of type 'const char *' converts between pointers to integer
+      types with different sign [-Wpointer-sign]
+        const u_int8_t *p = b64data;
+                        ^   ~~~~~~~
+src/_csrc/bcrypt.c:247:12: warning: initializing 'u_int8_t *' (aka 'unsigned char *') with an expression of type 'char *' converts between pointers to integer types with
+      different sign [-Wpointer-sign]
+        u_int8_t *bp = b64buffer;
+                  ^    ~~~~~~~~~
+2 warnings generated.
+creating /Users/javedalam/anaconda3/lib/python3.6/site-packages/bcrypt-3.1.4-py3.6-macosx-10.7-x86_64.egg
+Extracting bcrypt-3.1.4-py3.6-macosx-10.7-x86_64.egg to /Users/javedalam/anaconda3/lib/python3.6/site-packages
+Adding bcrypt 3.1.4 to easy-install.pth file
+
+Installed /Users/javedalam/anaconda3/lib/python3.6/site-packages/bcrypt-3.1.4-py3.6-macosx-10.7-x86_64.egg
+Finished processing dependencies for ansible
+Javeds-MacBook-Air:Machine Learning javedalam$ 
+
