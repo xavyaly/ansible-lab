@@ -1,3 +1,5 @@
+Interview Questions for Ansible, Docker and Python:
+
 Shell Script to list the name of files in a certain path ?
 #!/bin/sh
 for i in `ls -lar *.*`
@@ -6,10 +8,8 @@ echo $i
 done
 
 Algorithm to use in Elastic Load Balanacer ?
-Application Load Balancers applies listener rules and assigns the (HTTP/HTTPS) request to a target group. 
-It selects a target from that target group using the round robin routing algorithm.
-Network Load Balancers node that receives the connection, selects a target from its target group using a flow hash routing algorithm.
-Classic Load Balancers uses round robin routing algorithm for TCP listeners and least outstanding requests routing algorithm for HTTP and HTTPS listeners.
+
+How Autoscaling is configured and alogorithm used at the backend ?
 
 How Autoscaling is configured ?
 Create Launch Configuration -> Choose AMI, InstanceType, Configure Details, Security Groups and KeyPair => Launch it
@@ -35,56 +35,152 @@ scale_down_factor 0.25;
 
 Which language comes in the output of Ansible ? => JSON
 
-What is Port Forwarding and how it works ?
-Port forwarding is the process of configuring a router to make a computer or other network device that is connected to it accessible to other computers and network devices from outside of the local network. Port forwarding uses an IP address plus port number to route network requests to specific.
-
 How DNS resolution work ?
-https://www.rosehosting.com/blog/what-is-dns-and-how-does-it-work/
-1. The user enters the website’s domain in the address bar
-2. The browser and OS check their local cache
-3. The Resolver checks the local cache
-4. The root server checks the local cache
-5. The root server forwards the resolver to the TLD server
-6. Receiving the answer
 
 Ansible Roles Architecture ?
 
-Have you ever worked on nginx Servers ?
-How to handle multiple yml playbooks ? include module
-How to put condition in Ansible ?
-List of modules which you have worked ?
-How to check Docker Container is up or down ?
+How to handle multiple yml playbooks ? Include module
+
+How to put condition in Ansible ? When
+tasks:
+  - name: "shut down Debian flavored systems"
+    command: /sbin/shutdown -t now
+    when: ansible_os_family == "Debian"
+
+List of modules which you have worked ? Need to go in depth
+
+How to check Docker Container is up or down ? $ docker ps -a -q
+
 List the Values in ascending order and keys in any order in Python ?
+
 Fetch the string from a list only without list comprehension ? a = [1,"one",2] => one
-How SNS work in AWS and how you have configured in your Project ?
-What is the maximum no of nodes which ou have configured in Ansible Playbook ?
-Ansible or Puppet which one is better and why ?
+
+How SNS work in AWS and how you have configured in your Project ? Read SNS AWS Article
+
+What is the maximum no of nodes which you have configured in Ansible Playbook ? 20+
+
+Ansible or Puppet which one is better and why ? Ansible because no Master and Agent concept, Pull Concept, Less time 
+
 Directory structure for Roles in Ansible ?
-Have you created any Docker file by your own elaborate it ?
-Which madatory module you have to implement in REST Python API ?
+
+Have you created any Docker file by your own elaborate it ? Yes, for Jenkins and MySQL
+
+Which mandatory module you have to implement in REST Python API ? 
+Import os
+pip install py-rest-client
+
 Which module you need to implement to interact the AWS Services or for AWS Automation ? boto or boto3
+
 Structure for copy module in Ansible while copying multiple files from local to remote machine ?
-Why and how you have implemented the Cloud Watch Monitoring ?
-Why we use handlers module in Ansible ?
+- copy:
+    src: /srv/myfiles/foo.conf
+    dest: /etc/foo.conf
+    owner: foo
+    group: foo
+    mode: 0644
+
+Why and how you have implemented the Cloud Watch Monitoring ? Read AWS Cloud Watch Monitoring
+To enable all actions for an alarm => aws cloudwatch enable-alarm-actions --alarm-names myalarm
+
+Why we use handlers module in Ansible ? To restart any service
+---
+- hosts: webservers
+  vars:
+    http_port: 80
+    max_clients: 200
+  remote_user: root
+  tasks:
+  - name: ensure apache is at the latest version
+    yum: name=httpd state=latest
+  - name: write the apache config file
+    template: src=/srv/httpd.j2 dest=/etc/httpd.conf
+    notify:
+    - restart apache
+  - name: ensure apache is running (and enable it at boot)
+    service: name=httpd state=started enabled=yes
+  handlers:
+    - name: restart apache
+      service: name=httpd state=restarted
+
 What is the data type for class in Python ?
-Have you worked on Ansible with Docker ?
+
+Have you worked on Ansible with Docker ? No
+
 Command to install Docker in OS ? Mac => sudo easy_install docker 
+
 Pre-requisites to install Docker => Python would be must
+
 Difference between List and Tuple ?
+List is Mutable and Tuple is Immutable
+
 Where have you used list and tuple in your project ?
+Useless question
+
 How to fetch the unique elements in Python ? => set
+
 Is string is a mutable to immutable ? mutable 
-In Dictionary, will the data will print the way you insert ?
-Which Alogorithm used at the backend of Dictionary in Python ?
+
+In Dictionary, will the data will print the way you insert ? Need to verify 
+
+Which Algorithm used at the backend of Dictionary in Python ? Hashmap Techniques
+
 How Elastic Search work and where you have used ? => Kibana and Splunk i have used 
-List comprehension in Python and give me the type of string ?
-How iterator works in Python ?
-What is SLA and in which algorithm it worked at the backend ?
-Have you ever created any certificate ? Yes, openssl command
+
+List comprehension in Python and give me the type of string ? 
+A = [ print(i) for i in range(10) ]
+Print(A)
+
+How iterator works in Python ? Iterator used to iterate the array elements
+# define a list
+my_list = [4, 7, 0, 3]
+# get an iterator using iter()
+my_iter = iter(my_list)
+## iterate through it using next() 
+#prints 4
+print(next(my_iter))
+#prints 7
+print(next(my_iter))
+## next(obj) is same as obj.__next__()
+#prints 0
+print(my_iter.__next__())
+#prints 3
+print(my_iter.__next__())
+## This will raise error, no items left
+next(my_iter)
+
+What is SLA ? 
+A service-level agreement (SLA) is a document describing the level of service expected by a customer from a supplier, laying out the metrics by which that service is ... However, it's recommended that the client and the outsourcing company work together during the SLA contract negotiation to eliminate any ...
+
+Which algorithm it worked at the backend of SLA ?
+Interleaved Polling Algorithm
+
+Have you ever created any certificate ? Yes, through openssl command
+The commands below can be used to view the certificate fingerprint/thumbprint.
+• SHA-256: openssl x509 -noout -fingerprint -sha256 -inform pem -in [certificate-file.crt] 
+• SHA-1: openssl x509 -noout -fingerprint -sha1 -inform pem -in [certificate-file.crt]
+• MD5: openssl x509 -noout -fingerprint -md5 -inform pem -in [certificate-file.crt] 
+
 What is the demerits and merits while creating a certificate by our own ?
+Advantages
+1. No PKI (Public Key Infrastructure) is needed.
+2. Automatic deployment (Usually Self-signed certificates created automatic during the installation process of the server side applications).
+Disadvantages
+1. The certificates aren’t trusted by other applications/operating systems. This may lead to authentications errors etc.
+Note: To overcome this limitation, some IT staff add the self-signed certificates to the Trusted Roots Certificate Authorities. However, using this workaround may to additional time that needed for management and troubleshooting.
+2. Self-signed certificates life time is usually 1 years. Before the year is ended, the certificate may need to renew/replace.
+3. Self-signed certificates may use low hash and cipher technologies. Due this, the security level that implemented by self-signed certificates may not satisfy the current Security Policy etc. .
+4. No support for advanced PKI (Public Key Infrastructure) functions (e.g. Online checking of the revocation list etc.).
+5. Most of the advanced feathers of the server side applications required to impended a PKI (Public Key Infrastructure). By this, self-signed certificates advantages can't be used.
+
 What is ca-certificates  and in which Algorithm it worked ?
+
+
 Have you worked in hadoop and Are you good in SQL Queries ?
+
 How Ansible worked, let me know its Architecture ?
+
 What sequence followed by Ansible while executing the playbook ?
+
 Have you ever worked on Dynamic Playbook ?
+
 Have you ever worked on Dynamic Docker File ?
