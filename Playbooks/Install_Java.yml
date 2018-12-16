@@ -1,9 +1,0 @@
----
-- hosts: all
-  become: yes
-  tasks: 
-    - name: Install Java
-      yum:
-        name: Java
-        state: present
-        

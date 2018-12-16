@@ -1,9 +1,0 @@
----
-- hosts: all
-  become: yes
-  tasks:
-    - name: Install tomcat
-      yum:
-        name: tomcat
-        state: present
-

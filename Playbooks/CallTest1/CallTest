@@ -1,4 +1,0 @@
----
-- hosts: all
-  tasks:
-  - include: Test/Apache.yml
