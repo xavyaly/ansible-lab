@@ -1,0 +1,85 @@
+AWS EC2 MACHINES:
+	ANSIBLE-MASTER: DONE
+	ANSIBLE-AGENT1: DONE
+	ANSIBLE-AGENT2: DONE
+	ANSIBLE-AGENT3: 
+		SELECT THE AMI: ami-04ea996e7a3e7ad6b
+		LAUNCH AN INSTANCE:
+		1. Choose AMI
+		2. Choose Instance Type
+		3. Configure Instance
+		4. Add Storage
+		5. Add Tags
+		6. Configure Security Group
+		7. Review
+
+// CREATED AN AWS MACHINE CALLED:
+ansible-agent3
+
+
+// CHECK THE SECURITY GROUPS:
+
+ADD THE NEW RULES IN SG
+
+1. INBOUND RULES:
+	
+2. OUTBOUND RULES:
+￼
+
+// CONNEC THE AWS EC2:
+SELECT THE EC2 INSTANCE
+CLICK ON “CONNECT”
+// MAKE SURE KEY SHOULD BE PRESENT IN SAME LOCATION, “*.pem” file:
+ssh -i “<KEY-PAIR>" ubuntu@ec2-52-66-213-213.ap-south-1.compute.amazonaws.com
+
+
+// CHANGE THE HOSTNAME:
+ubuntu@ip-172-31-27-113:~$ sudo hostname ansible-agent3
+ubuntu@ip-172-31-27-113:~$ hostname
+ansible-agent3
+
+ubuntu@ip-172-31-27-113:~$ cat /etc/hosts
+127.0.0.1 localhost ansible-agent3
+
+ubuntu@ip-172-31-27-113:~$ cat /etc/hostname 
+#ip-172-31-27-113
+ansible-agent3
+
+
+// TO MAANAGE THE AWS INSTALL AWS CLI:
+https://docs.aws.amazon.com/cli/latest/userguide/install-macos.html
+
+// EACH TIME IP GONNA TO BE CHANE WHENEVER YOU RESTART THE AWS EC2 MACHINE:
+
+
+// AWS COMMAND LINE INTERFACE:
+https://docs.aws.amazon.com/cli/latest/index.html
+
+// MANAGE AWS INSTANCES:
+https://docs.aws.amazon.com/cli/latest/reference/ec2/start-instances.html
+EXAMPLE:
+aws ec2 start-instances --instance-ids i-1234567890abcdef0
+
+
+// INSTALL AWS CLI IN UBUNTU MACHINE:
+ubuntu@ansible-agent3:~$ aws configure
+The program 'aws' is currently not installed. You can install it by typing:
+sudo apt install awscli
+ubuntu@ansible-agent3:~$ sudo apt install awscli
+// FACING AN ERROR
+ubuntu@ansible-agent3:~$ sudo apt-get update
+ubuntu@ansible-agent3:~$ sudo apt install awscli		// WORKING PERFECTLY
+
+
+// DOWNLOAD THE SECURITY CREDENTIALS:
+// https://docs.aws.amazon.com/general/latest/gr/managing-aws-access-keys.html
+MY ACCOUNG -> MY Security Credentials -> DOWNLOAD AND KEEP THE ACCESS AND SECRET KEY
+ubuntu@ansible-agent3:~$ aws configure
+// https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html
+$ aws configure
+AWS Access Key ID [None]: AKIAIOSFODNN7EXAMPLE
+AWS Secret Access Key [None]: wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+Default region name [None]: us-west-2
+Default output format [None]: json
+
+
