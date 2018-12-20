@@ -1,0 +1,37 @@
+// TO MANAGE THE AWS INSTALL AWS CLI:
+https://docs.aws.amazon.com/cli/latest/userguide/install-macos.html
+
+// EACH TIME PUBLIC IP GONNA TO BE CHANE WHENEVER YOU RESTART THE AWS EC2 MACHINE:
+
+// AWS COMMAND LINE INTERFACE:
+https://docs.aws.amazon.com/cli/latest/index.html
+
+// MANAGE AWS INSTANCES:
+https://docs.aws.amazon.com/cli/latest/reference/ec2/start-instances.html
+EXAMPLE:
+aws ec2 start-instances --instance-ids i-1234567890abcdef0
+
+
+// INSTALL AWS CLI IN UBUNTU MACHINE:
+ubuntu@ansible-agent3:~$ aws configure
+The program 'aws' is currently not installed. You can install it by typing:
+sudo apt install awscli
+ubuntu@ansible-agent3:~$ sudo apt install awscli
+// FACING AN ERROR
+ubuntu@ansible-agent3:~$ sudo apt-get update
+ubuntu@ansible-agent3:~$ sudo apt install awscli		// WORKING PERFECTLY
+
+
+// DOWNLOAD THE SECURITY CREDENTIALS:
+// https://docs.aws.amazon.com/general/latest/gr/managing-aws-access-keys.html
+MY ACCOUNG -> MY Security Credentials -> DOWNLOAD AND KEEP THE ACCESS AND SECRET KEY
+
+// CONFIGURE AWS CLI:
+ubuntu@ansible-agent3:~$ aws configure
+// https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html
+Example:
+$ aws configure
+AWS Access Key ID [None]: AKIAIOSFODNN7EXAMPLE
+AWS Secret Access Key [None]: wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+Default region name [None]: us-west-2
+Default output format [None]: json
