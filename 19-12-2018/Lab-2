@@ -13,7 +13,7 @@ AWS EC2 MACHINES:
 		6. Configure Security Group
 		7. Review
 
-// CREATED AN AWS MACHINE CALLED:
+// CREATED AN AWS MACHINE:
 ansible-agent3
 
 // CHECK THE SECURITY GROUPS:
