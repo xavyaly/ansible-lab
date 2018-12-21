@@ -1,0 +1,8 @@
+Playbook - A sinlge YML File
+  Play - Defined a set of activities (tasks) to be run on hosts
+    Tasks - An action to be performed on host
+      - Execute a command
+      - Run a script
+      - Install a Package
+      - Shutdown/ Restart
+

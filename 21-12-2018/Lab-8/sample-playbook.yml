@@ -1,0 +1,30 @@
+-
+  name: Play1
+  hosts: localhost
+  tasks:
+    - name: Execute command 'date'
+      command: date
+
+    - name: Execute scripts on Servers
+      script: test_script.sh OR <path-of-script>
+
+    - name: Install httpd service
+      yum:
+        name: httpd service
+        state: present
+
+    - name: Start cms services
+      service:
+        name: cms 
+        state: started
+
+# INFORMATIONS:
+
+# "-"	: indicates items in the list
+
+# name, host, tasks : property of dictionary
+
+# command,script, yum, service	: modules
+
+# ansible-doc -l	: LIST ALL MODULES
+
