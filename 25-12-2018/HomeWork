@@ -1,0 +1,5 @@
+Create a playbook to add the authorizedkeys “ssh-keygen” if not present
+Create a playbook to add a user “<username>” into Docker group
+Create a Playbook to Install python-minimal 
+Create a Playbook to install Docker
+
