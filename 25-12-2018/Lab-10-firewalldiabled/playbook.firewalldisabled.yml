@@ -1,0 +1,32 @@
+-
+  name: Play1
+  become: yes
+  hosts: agent1
+  tasks: 
+    -
+      name: Set firewall configurations
+      firewalld:
+        service: https
+        permanent: true
+        state: disabled
+
+    -
+      name: Disabled http_port configurations
+      firewalld:
+        port: '{{ http_port }}'/tcp
+        permanent: true
+        state: disabled
+
+    -
+      name: Disabled snmp_port configurations
+      firewalld:
+        port: '{{ snmp_port }}'/udp
+        permanent: true
+        state: disabled
+
+    -
+      name: Disabled ip range configurations
+      firewalld:
+        port: '{{ inter_ip_range }}'/24
+        zone: internal
+        state: disabled

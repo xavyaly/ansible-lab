@@ -1,0 +1,12 @@
+# SIMPLE ANSIBLE PLAYBOOK
+
+-
+  name: Play1
+  hosts: all
+  tasks:
+    - name: Execute command date
+      command: date
+
+    - name: Display resolv.conf contents
+      command: cat resolv.conf chdir=/etc
+

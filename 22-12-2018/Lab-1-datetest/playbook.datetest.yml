@@ -1,0 +1,6 @@
+-
+  name: Execute a date command on localhost
+  hosts: all
+  tasks:
+    - name: Execute a date command
+      command: date

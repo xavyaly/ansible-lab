@@ -1,0 +1,13 @@
+Employee:
+  Name: XYZ
+  Sex: Male
+  Tile: DevOps Engineer
+  Age: 31
+  Projects:
+    - Automation
+    - Support
+    - Troubleshooting
+  Payslips:
+    - Nov
+    - Dec
+    - Jan

@@ -1,0 +1,6 @@
+-
+  name: Test connectivity to agent1 server
+  hosts: all
+  tasks: 
+    - name: Ping test
+      ping:

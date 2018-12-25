@@ -1,0 +1,20 @@
+# Update the playbook with a play to "Execute a script on all web server nodes". The script is located at /tmp/install_script.sh
+
+# ------------------------------
+#           BEFORE
+# ------------------------------
+
+# ------------------------------
+#           AFTER
+# ------------------------------
+- 
+  name: Transfer and execute a script.
+  hosts: all
+  remote_user: ubuntu
+  become: yes
+  tasks:
+     - name: Transfer the script
+       copy: src=/home/ubuntu/git/Ansible/25-12-2018/Lab-5-scriptexecutiontest/test.sh dest=/home/ubuntu/  mode=0777
+
+     - name: Execute the script
+       command: sh /home/ubuntu/test.sh

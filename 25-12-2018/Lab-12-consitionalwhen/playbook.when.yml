@@ -1,0 +1,12 @@
+-
+  name: Play1
+  become: yes
+  hosts: agent1
+  tasks:
+    -
+      name: Check apache2 has started or not
+      service:
+        name: apache2 
+        state: present
+      when:
+        ansible_host=='ansible-agent1'
