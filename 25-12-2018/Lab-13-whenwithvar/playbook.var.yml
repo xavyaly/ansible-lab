@@ -1,0 +1,17 @@
+-
+  name: Play1
+  become: yes
+  hosts: agent1
+  vars:
+    age: 25
+  tasks:
+    -
+      name: Print the child age
+      command: echo "I am a child"
+      when:
+        age < 18
+    -
+      name: Print the man age
+      command: echo "I am an adult"
+      when:
+        age >= 18

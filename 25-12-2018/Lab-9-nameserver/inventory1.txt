@@ -1,0 +1,12 @@
+[agent1]
+172.31.31.81 ansible_connection=ssh 
+
+[agent2]
+172.31.30.160 ansible_connection=ssh
+
+[allservers:children]
+agent1
+agent2
+
+
+localhost ansible_connection=localhost nameserver_ip=10.1.250.10

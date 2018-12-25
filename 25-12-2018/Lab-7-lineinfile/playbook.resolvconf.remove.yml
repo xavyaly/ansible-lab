@@ -1,0 +1,10 @@
+-
+  name: Play1
+  hosts: agent1 
+  tasks:
+    -
+      name: Delete the entry which added in reove.txt file
+      lineinfile:
+        dest: /home/ubuntu/remove.txt
+        regex: "nameserver 100.100.10.10"
+        state: absent
