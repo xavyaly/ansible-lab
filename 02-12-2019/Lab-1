@@ -1,0 +1,18 @@
+Ansible is basically configuration management tool:
+
+Introduction of Ansible
+Installation of Ansible
+YAML Introduction
+Ansible Inventory Files
+Ansible Playbooks	
+Variables
+Conditionals
+Loops
+Roles
+
+// ANSIBLE DOCUMENTATION
+https://docs.ansible.com/
+
+// Ansible installation on MAC OS
+https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html#latest-releases-on-macos
+
