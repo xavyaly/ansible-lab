@@ -9,4 +9,6 @@
 
     - name: Display resolv.conf contents
       command: cat resolv.conf chdir=/etc
-
+   
+    - debug:
+        var: shell_result.stdout_lines
