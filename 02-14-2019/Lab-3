@@ -1,0 +1,70 @@
+ubuntu@ansible-master:~/ansible/Lab-3-copytest$ cat inventory.txt 
+[agent1]
+172.31.31.81 ansible_connection=ssh 
+
+[agent2]
+172.31.30.160 ansible_connection=ssh
+
+[allservers:children]
+agent1
+agent2
+
+
+ubuntu@ansible-master:~/ansible/Lab-3-copytest$ cat playbook.yml 
+# https://docs.ansible.com/ansible/2.5/modules/copy_module.html#examples
+
+-
+  name: Copy the file to target Server
+  hosts: localhost
+  tasks:
+    - name: Copy file
+      copy: 
+        src: /home/ubuntu/ansible/Lab-3-copytest/test.txt
+        dest: /home/ubuntu/ansible
+
+  
+ubuntu@ansible-master:~/ansible/Lab-3-copytest$ ansible-playbook playbook.yml -i inventory.txt 
+
+PLAY [Copy the file to target Server] ********************************************************************************************************************************************
+
+TASK [Gathering Facts] ***********************************************************************************************************************************************************
+ok: [localhost]
+
+TASK [Copy file] *****************************************************************************************************************************************************************
+ok: [localhost]
+
+PLAY RECAP ***********************************************************************************************************************************************************************
+localhost                  : ok=2    changed=0    unreachable=0    failed=0   
+
+ubuntu@ansible-master:~/ansible/Lab-3-copytest$ 
+
+ubuntu@ansible-master:~/ansible/Lab-3-copytest$ rm ../test.txt 
+ubuntu@ansible-master:~/ansible/Lab-3-copytest$ ansible-playbook playbook.yml -i inventory.txt 
+
+PLAY [Copy the file to target Server] ********************************************************************************************************************************************
+
+TASK [Gathering Facts] ***********************************************************************************************************************************************************
+ok: [localhost]
+
+TASK [Copy file] *****************************************************************************************************************************************************************
+changed: [localhost]
+
+PLAY RECAP ***********************************************************************************************************************************************************************
+localhost                  : ok=2    changed=1    unreachable=0    failed=0   
+
+ubuntu@ansible-master:~/ansible/Lab-3-copytest$ 
+ubuntu@ansible-master:~/ansible/Lab-3-copytest$ ansible-playbook playbook.yml -i inventory.txt 
+
+PLAY [Copy the file to target Server] ********************************************************************************************************************************************
+
+TASK [Gathering Facts] ***********************************************************************************************************************************************************
+ok: [localhost]
+
+TASK [Copy file] *****************************************************************************************************************************************************************
+ok: [localhost]
+
+PLAY RECAP ***********************************************************************************************************************************************************************
+localhost                  : ok=2    changed=0    unreachable=0    failed=0   
+
+ubuntu@ansible-master:~/ansible/Lab-3-copytest$ 
+

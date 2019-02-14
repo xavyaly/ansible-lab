@@ -36,16 +36,19 @@ ssh -i “<KEY-PAIR>" ubuntu@ec2-52-66-213-213.ap-south-1.compute.amazonaws.com
 
 
 // CHANGE THE HOSTNAME:
-ubuntu@ip-172-31-27-113:~$ sudo hostname ansible-agent3
+ubuntu@ip-172-31-27-113:~$ sudo hostname ansible-agent3		: temporary
 ubuntu@ip-172-31-27-113:~$ hostname
 ansible-agent3
 
-ubuntu@ip-172-31-27-113:~$ cat /etc/hosts
+ubuntu@ip-172-31-27-113:~$ sudo nano /etc/hosts		: permanent, change the file
+ubuntu@ip-172-31-27-113:~$ cat /etc/hosts		: cross verify
 127.0.0.1 localhost ansible-agent3
 
-ubuntu@ip-172-31-27-113:~$ cat /etc/hostname 
+ubuntu@ip-172-31-27-113:~$ sudo nano /etc/hostname 	: permanent, change the file
+ubuntu@ip-172-31-27-113:~$ cat /etc/hostname 	: cross verify
 #ip-172-31-27-113
 ansible-agent3
+
 
 // ADD THE SSH KEYS
 

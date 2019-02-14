@@ -1,0 +1,65 @@
+ubuntu@ansible-master:~/ansible/Lab-6-httpService$ cat inventory.txt 
+[agent1]
+172.31.31.81 ansible_connection=ssh 
+
+[agent2]
+172.31.30.160 ansible_connection=ssh
+
+[allservers:children]
+agent1
+agent2
+
+
+ubuntu@ansible-master:~/ansible/Lab-6-httpService$ cat playbook.httpdService.yml 
+-
+  name: Execute a script on all web server nodes and start httpd service
+  hosts: all
+  tasks:
+    -
+      name: Start apache2 service
+      service:
+        name: apache2
+        state: started
+
+ubuntu@ansible-master:~/ansible/Lab-6-httpService$ 
+
+ubuntu@ansible-master:~/ansible/Lab-6-httpService$ ansible-playbook playbook.httpdService.yml -i inventory.txt 
+
+PLAY [Execute a script on all web server nodes and start httpd service] **********************************************************************************************************
+
+TASK [Gathering Facts] ***********************************************************************************************************************************************************
+ok: [172.31.31.81]
+
+TASK [Start apache2 service] *****************************************************************************************************************************************************
+ok: [172.31.31.81]
+
+PLAY RECAP ***********************************************************************************************************************************************************************
+172.31.31.81               : ok=2    changed=0    unreachable=0    failed=0   
+
+ubuntu@ansible-master:~/ansible/Lab-6-httpService$
+
+
+// CROSS VERIFY IN ANSIBLE AGENT1 SERVER:
+
+ubuntu@ansible-agent1:~$ sudo systemctl status apache2
+● apache2.service - LSB: Apache2 web server
+   Loaded: loaded (/etc/init.d/apache2; bad; vendor preset: enabled)
+  Drop-In: /lib/systemd/system/apache2.service.d
+           └─apache2-systemd.conf
+   Active: active (running) since Thu 2019-02-14 04:21:39 UTC; 34min ago
+     Docs: man:systemd-sysv-generator(8)
+    Tasks: 55
+   Memory: 7.6M
+      CPU: 808ms
+   CGroup: /system.slice/apache2.service
+           ├─1338 /usr/sbin/apache2 -k start
+           ├─1341 /usr/sbin/apache2 -k start
+           └─1342 /usr/sbin/apache2 -k start
+
+Feb 14 04:21:38 ansible-agent1 systemd[1]: Starting LSB: Apache2 web server...
+Feb 14 04:21:39 ansible-agent1 apache2[1260]:  * Starting Apache httpd web server apache2
+Feb 14 04:21:39 ansible-agent1 apache2[1260]: AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 127.0.0.1. Set the 'ServerName' direc
+Feb 14 04:21:39 ansible-agent1 apache2[1260]:  *
+Feb 14 04:21:39 ansible-agent1 systemd[1]: Started LSB: Apache2 web server.
+lines 1-19/19 (END)
+
