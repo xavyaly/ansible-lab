@@ -1,0 +1,68 @@
+$ cat inventory.txt 
+[agent1]
+172.31.31.81 ansible_connection=ssh 
+
+[agent2]
+172.31.30.160 ansible_connection=ssh
+
+[allservers:children]
+agent1
+agent2
+
+
+ubuntu@ansible-master:~/ansible/Lab-13-whenwithvar$ cat playbook.var.yml 
+-
+  name: Play1
+  become: yes
+  hosts: agent1
+  vars:
+    age: 25
+  tasks:
+    -
+      name: Print the child age
+      command: echo "I am a child"
+      when:
+        age < 18
+    -
+      name: Print the man age
+      command: echo "I am an adult"
+      when:
+        age >= 18
+ubuntu@ansible-master:~/ansible/Lab-13-whenwithvar$ 
+ubuntu@ansible-master:~/ansible/Lab-13-whenwithvar$ 
+ubuntu@ansible-master:~/ansible/Lab-13-whenwithvar$ 
+ubuntu@ansible-master:~/ansible/Lab-13-whenwithvar$ 
+ubuntu@ansible-master:~/ansible/Lab-13-whenwithvar$ 
+ubuntu@ansible-master:~/ansible/Lab-13-whenwithvar$ ansible-playbook playbook.var.yml -i inventory.txt 
+
+PLAY [Play1] *********************************************************************************************************************************************************************
+
+TASK [Gathering Facts] ***********************************************************************************************************************************************************
+ok: [172.31.31.81]
+
+TASK [Print the child age] *******************************************************************************************************************************************************
+skipping: [172.31.31.81]
+
+TASK [Print the man age] *********************************************************************************************************************************************************
+changed: [172.31.31.81]
+
+PLAY RECAP ***********************************************************************************************************************************************************************
+172.31.31.81               : ok=2    changed=1    unreachable=0    failed=0   
+
+ubuntu@ansible-master:~/ansible/Lab-13-whenwithvar$ ansible-playbook playbook.var.yml -i inventory.txt 
+
+PLAY [Play1] *********************************************************************************************************************************************************************
+
+TASK [Gathering Facts] ***********************************************************************************************************************************************************
+ok: [172.31.31.81]
+
+TASK [Print the child age] *******************************************************************************************************************************************************
+skipping: [172.31.31.81]
+
+TASK [Print the man age] *********************************************************************************************************************************************************
+changed: [172.31.31.81]
+
+PLAY RECAP ***********************************************************************************************************************************************************************
+172.31.31.81               : ok=2    changed=1    unreachable=0    failed=0   
+
+ubuntu@ansible-master:~/ansible/Lab-13-whenwithvar$ 

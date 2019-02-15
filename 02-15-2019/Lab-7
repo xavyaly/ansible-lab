@@ -1,0 +1,49 @@
+$ cat inventory.txt 
+[agent1]
+172.31.31.81 ansible_connection=ssh 
+
+[agent2]
+172.31.30.160 ansible_connection=ssh
+
+[allservers:children]
+agent1
+agent2
+
+
+ubuntu@ansible-master:~/ansible/Lab-16-varsaptgetwithitem$ cat playbook.varsaptgetwithitem.yml 
+-
+  name: Play1
+  become: yes 
+  hosts: agent1
+  vars:
+    packages:
+      - mysql-server
+      - apache2
+      - mongodb
+      - nodejs
+  tasks: 
+    -
+      name: Install required packages
+      apt:
+        name: "{{ item }}"
+        state: present
+      with_items: "{{ packages }}"
+ubuntu@ansible-master:~/ansible/Lab-16-varsaptgetwithitem$ 
+ubuntu@ansible-master:~/ansible/Lab-16-varsaptgetwithitem$ 
+ubuntu@ansible-master:~/ansible/Lab-16-varsaptgetwithitem$ ansible-playbook playbook.varsaptgetwithitem.yml -i inventory.txt 
+
+PLAY [Play1] *********************************************************************************************************************************************************************
+
+TASK [Gathering Facts] ***********************************************************************************************************************************************************
+ok: [172.31.31.81]
+
+TASK [Install required packages] *************************************************************************************************************************************************
+[DEPRECATION WARNING]: Invoking "apt" only once while using a loop via squash_actions is deprecated. Instead of using a loop to supply multiple items and specifying `name: {{ 
+item }}`, please use `name: u'{{ packages }}'` and remove the loop. This feature will be removed in version 2.11. Deprecation warnings can be disabled by setting 
+deprecation_warnings=False in ansible.cfg.
+ok: [172.31.31.81] => (item=[u'mysql-server', u'apache2', u'mongodb', u'nodejs'])
+
+PLAY RECAP ***********************************************************************************************************************************************************************
+172.31.31.81               : ok=2    changed=0    unreachable=0    failed=0   
+
+ubuntu@ansible-master:~/ansible/Lab-16-varsaptgetwithitem$ 

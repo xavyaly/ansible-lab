@@ -1,0 +1,18 @@
+Example of a simple playbook:
+-
+  name: Test the connectivity to agent servers
+  hosts: all
+  tasks:
+    - name: Ping Test
+      ping: 
+
+#Note
+
+# "-": indicates an items in the list
+
+# name, hosts, tasks: property of dictionary
+
+# command, script, yum, apt-get, service: modules
+
+# ansible-doc -l: LIST ALL ANSIBLE MODULES
+

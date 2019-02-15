@@ -1,0 +1,63 @@
+$ cat inventory.txt 
+[agent1]
+172.31.31.81 ansible_connection=ssh 
+
+[agent2]
+172.31.30.160 ansible_connection=ssh
+
+[allservers:children]
+agent1
+agent2
+
+
+ubuntu@ansible-master:~/ansible/Lab-14-registerwithwhen$ cat playbook.registerwhen.yml 
+-
+  name: Play1
+  become: yes 
+  hosts: agent1 
+  tasks:
+    -
+      name: Catch the output
+      shell: cat /home/ubuntu/remove.txt
+      register: command_output
+
+    -
+      name: Check and Add 
+      shell: echo "nameserver 100.100.10.10" >> /home/ubuntu/remove.txt
+      when: command_output.stdout.find('100.100.10.10') == -1
+ubuntu@ansible-master:~/ansible/Lab-14-registerwithwhen$ 
+ubuntu@ansible-master:~/ansible/Lab-14-registerwithwhen$ 
+ubuntu@ansible-master:~/ansible/Lab-14-registerwithwhen$ touch test.txt
+ubuntu@ansible-master:~/ansible/Lab-14-registerwithwhen$ nano test.txt 
+ubuntu@ansible-master:~/ansible/Lab-14-registerwithwhen$ echo "nameserver" >> ~/.
+./                         .bash_history              .cache/                    .mysql_history             .rpmdb/                    
+../                        .bash_logout               .cloud-locale-test.skip    .nano/                     .ssh/                      
+.ansible/                  .bashrc                    .gitconfig                 .profile                   .sudo_as_admin_successful  
+ubuntu@ansible-master:~/ansible/Lab-14-registerwithwhen$ echo "nameserver" >> ~/.ansible/
+cp/  tmp/ 
+ubuntu@ansible-master:~/ansible/Lab-14-registerwithwhen$ pwd
+/home/ubuntu/ansible/Lab-14-registerwithwhen
+ubuntu@ansible-master:~/ansible/Lab-14-registerwithwhen$ echo "YYY" >> /home/ubuntu/ansible/Lab-14-registerwithwhen
+-bash: /home/ubuntu/ansible/Lab-14-registerwithwhen: Is a directory
+ubuntu@ansible-master:~/ansible/Lab-14-registerwithwhen$ echo "YYY" >> /home/ubuntu/ansible/Lab-14-registerwithwhen/test.txt 
+ubuntu@ansible-master:~/ansible/Lab-14-registerwithwhen$ cat test.txt 
+XXXX
+
+YYY
+ubuntu@ansible-master:~/ansible/Lab-14-registerwithwhen$ ansible-playbook playbook.registerwhen.yml -i inventory.txt 
+
+PLAY [Play1] *********************************************************************************************************************************************************************
+
+TASK [Gathering Facts] ***********************************************************************************************************************************************************
+ok: [172.31.31.81]
+
+TASK [Catch the output] **********************************************************************************************************************************************************
+changed: [172.31.31.81]
+
+TASK [Check and Add] *************************************************************************************************************************************************************
+skipping: [172.31.31.81]
+
+PLAY RECAP ***********************************************************************************************************************************************************************
+172.31.31.81               : ok=2    changed=1    unreachable=0    failed=0   
+
+ubuntu@ansible-master:~/ansible/Lab-14-registerwithwhen$

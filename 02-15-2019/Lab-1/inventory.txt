@@ -1,0 +1,43 @@
+[web]
+server1.company.com ansible_host=server1.company.com ansible_connection=ssh ansible_user=root ansible_ssh_pass=Linux$Password
+server2.company.com ansible_host=server2.company.com ansible_connection=ssh ansible_user=root ansible_ssh_pass=Linux$Password
+
+[cq]
+server3.company.com ansible_host=server3.company.com ansible_connection=ssh ansible_user=admin
+server4.company.com ansible_host=server4.company.com ansible_connection=ssh ansible_user=admin
+
+[db]
+server5.company.com ansible_host=server5.company.com ansible_connection=ssh ansible_user=admin
+
+[mail]
+server6.company.com ansible_host=server6.company.com ansible_connection=winrm ansible_user=root ansible_password=Win$Password
+server7.company.com ansible_host=server7.company.com ansible_connection=winrm ansible_user=root
+
+[jenkins]
+server8.company.com ansible_host=server8.company.com ansible_connection=ssh ansible_user=admin
+
+#CREATE GROUPS
+[web-db-groups]
+web
+db
+
+[db-jenkins-server]
+db
+jenkins
+
+[all_servers:children]
+web
+cq
+db
+mail
+jenkins
+
+[group1]
+server9.company.com ansible_host=server9.company.com ansible_connection=winrm ansible_user=root
+
+[group2]
+server1.company.com ansible_host=server1.company.com ansible_connection=ssh ansible_user=root ansible_ssh_pass=Linux$Password
+server5.company.com ansible_host=server5.company.com ansible_connection=ssh ansible_user=admin
+
+#INFORMATION OF LOCALHOST
+localhost ansible_connection=localhost
