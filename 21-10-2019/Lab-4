@@ -1,0 +1,36 @@
+// Server is running but unable to check the ping command:
+
+ubuntu@Ansible-Agent-1:~$ ping 13.235.80.97
+PING 13.235.80.97 (13.235.80.97) 56(84) bytes of data.
+^C
+--- 13.235.80.97 ping statistics ---
+10 packets transmitted, 0 received, 100% packet loss, time 9070ms
+
+
+// Add the SSH Keys:
+
+Go to Ansible Master and execute the below command:
+
+$ ssh-keygen
+$ cd ~/.ssh
+$ ls -l		: 
+	authorized_keys  
+	id_rsa		- Private keys
+	id_rsa.pub	- Public keys
+	known_hosts 
+$ cat id_rsa.pub	- Copy the public key
+
+Next:
+Come to Ansible-Agent-1 & Ansible-Agent-2
+
+// Change the hostname for both agents
+// Add the Public Key inside the authorized_keys
+$ nano ~/.ssh/authorized_keys
+ctrl+x
+Shift+Y
+
+Come to Jenkins-Ansible <Ansible Master>
+
+$ ping <private-ip-Ansible-Agent-1>				// till here I need everyone to attempt
+
+// Cross verify the ping connectivity from Master and Agent vice versa

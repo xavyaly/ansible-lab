@@ -1,0 +1,47 @@
+// CONNECT THE AWS EC2:
+
+SELECT THE EC2 INSTANCE
+CLICK ON “CONNECT”
+
+// MAKE SURE KEY SHOULD BE PRESENT IN SAME LOCATION, Same Name “*.pem” file:
+
+ssh -i “<KEY-PAIR>.pem” ubuntu@ec2-52-66-213-213.ap-south-1.compute.amazonaws.com
+
+Example:
+	$ ssh -i "Jenkins-Ansible.pem" ubuntu@ec2-13-235-78-115.ap-south-1.compute.amazonaws.com
+
+
+// Change the hostname temporary:
+
+ubuntu@ip-172-31-2-147:~$ hostname					// $: user, #: root
+ip-172-31-2-147										// old hostname
+ubuntu@ip-172-31-2-147:~$ hostname Ansible-Agent-1		// change the hostname as a temporary basis	
+hostname: you must be root to change the host name			// error, need sudo su 
+ubuntu@ip-172-31-2-147:~$ 
+ubuntu@ip-172-31-2-147:~$ sudo hostname Ansible-Agent-1	// change the hostname as a root user
+ubuntu@ip-172-31-2-147:~$ hostname
+Ansible-Agent-1										// hostname has been changed but temporary, 
+ubuntu@ip-172-31-2-147:~$ exit						// possibly to revert back with old hostname
+
+
+// Change the hostname permanently:
+
+Current Scenario:
+
+ubuntu@Ansible-Agent-1:~$ cat /etc/hosts
+127.0.0.1 localhost
+ubuntu@Ansible-Agent-1:~$ cat /etc/hostname 
+ip-172-31-2-147
+ubuntu@Ansible-Agent-1:~$ hostname
+Ansible-Agent-1
+
+After Change:
+
+ubuntu@Ansible-Agent-1:~$ cat /etc/hosts
+127.0.0.1 localhost Ansible-Agent-1
+ubuntu@Ansible-Agent-1:~$ cat /etc/hostname 
+#ip-172-31-2-147
+Ansible-Agent-1
+ubuntu@Ansible-Agent-1:~$ hostname
+Ansible-Agent-1
+

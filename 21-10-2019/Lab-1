@@ -1,0 +1,30 @@
+Configuration Management Tool: CM Tool
+
+Ansible
+	Totally based on modules
+	
+Chef
+Puppet
+Salt Stack
+
+Topics Need to cover:
+Introduction of Ansible
+Installation of Ansible
+YAML Introduction
+Ansible Inventory Files
+Ansible Playbooks	
+Variables
+Conditionals
+Loops
+Roles
+
+// ANSIBLE DOCUMENTATION
+https://docs.ansible.com/
+
+// Ansible installation on MAC OS
+https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html#latest-releases-on-macos
+
+// Linux:
+	$ rpm -qa | grep java
+	$ rpm install java			// it can’t install the dependency it’s own
+	$ yum install java 			// resolve dependency by it’s own

@@ -1,0 +1,16 @@
+AWS EC2 MACHINES:
+	Jenkins-Ansible:  DONE		// Master
+	Ansible-Agent-1:  DONE		// Agent 1
+	Ansible-Agent-2:  Pending		// Agent 2
+
+TO CREATE AN AWS EC2:
+	Launch an Instance	
+	Choose an AMI			// 16.04 ubuntu machine
+	Choose Instance Type		// t2.micro
+	Configure instance	
+	Add Storage	
+	Add Tags:				// Important, any name
+	Configure Security Group
+	Review
+
+Refer to Jenkins AWS:
