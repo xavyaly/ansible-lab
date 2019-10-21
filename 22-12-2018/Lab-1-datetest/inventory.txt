@@ -1,2 +1,0 @@
-[target]
-172.31.31.81 ansible_connection=ssh 

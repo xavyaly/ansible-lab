@@ -1,8 +1,0 @@
-ansible_connection	: ssh/winrm/localhost
-
-ansible_port		: 22/5986
-
-ansible_user		: root/administrator
-
-ansible_ssh_pass	: <password>
-# ANSIBLE VAULT		: Used for security purpose like to put in encrypted format
