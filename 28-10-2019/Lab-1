@@ -1,0 +1,77 @@
+// TO MANAGE THE AWS INSTALL AWS CLI:
+https://docs.aws.amazon.com/cli/latest/userguide/install-macos.html
+
+// EACH TIME PUBLIC IP GONNA TO BE CHANE WHENEVER YOU RESTART THE AWS EC2 MACHINE:
+
+// AWS COMMAND LINE INTERFACE:
+https://docs.aws.amazon.com/cli/latest/index.html
+
+// MANAGE AWS INSTANCES:
+https://docs.aws.amazon.com/cli/latest/reference/ec2/start-instances.html
+EXAMPLE:
+aws ec2 start-instances --instance-ids i-1234567890abcdef0
+
+
+// INSTALL AWS CLI IN UBUNTU MACHINE:
+
+When I tried first time in new Ubuntu Machine:
+$ aws configure
+The program 'aws' is currently not installed. You can install it by typing:
+sudo apt install awscli
+
+OR
+
+$ aws ec2 start-instances --instance-ids i-03f724096bd013aab
+The program 'aws' is currently not installed. You can install it by typing:
+sudo apt install awscli
+
+// Update it then install AWS CLI
+$ sudo apt-get update
+$ sudo apt install awscli				// Press “Y” to proceed; 30 Sec it will take to install
+$ aws configure					// Need 4 parameters
+
+
+// DOWNLOAD THE SECURITY CREDENTIALS:
+// https://docs.aws.amazon.com/general/latest/gr/managing-aws-access-keys.html
+MY ACCOUNT -> MY Security Credentials -> Access Keys -> Create New Access Keys -> DOWNLOAD AND KEEP THE ACCESS AND SECRET KEY
+
+
+// CONFIGURE AWS CLI:
+ubuntu@ansible-agent3:~$ aws configure
+
+// https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html
+
+Example:
+$ aws configure
+AWS Access Key ID [None]: AKIAIOSFODNN7EXAMPLE							// Mandatory
+AWS Secret Access Key [None]: wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY	// Mandatory
+Default region name [None]: us-west-2
+Default output format [None]: json/table
+
+// Cross Verify AWS CLI:
+$ pwd
+/home/ubuntu/
+$ cd ~/.aws/
+
+$ cat credentials 
+[default]
+aws_secret_access_key = wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+aws_access_key_id = AKIAIOSFODNN7EXAMPLE
+
+$ cat config 
+[default]
+region = ap-south-1b
+output = json
+
+//Lets start an instance:
+
+$ aws ec2 start-instances --instance-ids i-0ab873facf2ff3db8
+
+HTTPSConnectionPool(host='ec2.ap-south-1b.amazonaws.com', port=443): Max retries exceeded with url: / (Caused by NewConnectionError('<requests.packages.urllib3.connection.VerifiedHTTPSConnection object at 0x7fe87c676978>: Failed to establish a new connection: [Errno -2] Name or service not known',))
+
+$ aws ec2 describe-instance-status --instance-id i-0ab873facf2ff3db8
+
+HTTPSConnectionPool(host='ec2.ap-south-1b.amazonaws.com', port=443): Max retries exceeded with url: / (Caused by NewConnectionError('<requests.packages.urllib3.connection.VerifiedHTTPSConnection object at 0x7f1ce5ce4128>: Failed to establish a new connection: [Errno -2] Name or service not known',))
+ubuntu@ip-172-31-2-71:~$ 
+
+// Here we are getting one error

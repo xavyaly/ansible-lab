@@ -1,0 +1,28 @@
+// HOW TO ADD THE CERTIFICATE IN HOST LEVEL AND ELB
+Discussed 
+
+//NOTE:
+Master won’t be WINDOWS it should be Linux(MacOS, Ubuntu,etc…)
+
+// CROSS VERIFY THE PIP VERSION WHILE INSTALLING THE AWS CLI Applicable in MacOS: Not Mandatory
+$ pip —version
+pip 18.1 …..
+
+
+// PING THE NEW SERVER:
+ubuntu@ansible-master:~$ ping <Ansible-Agent-1-Public-IP>			// Need to check
+ubuntu@ansible-master:~$ ping DNS								// Working 
+ubuntu@ansible-master:~$ ping <Ansible-Agent-1-Private-IP>		// Working
+
+
+// SSH TO NEW SERVER:
+ubuntu@ansible-master:~$ ssh <Ansible-Agent-1-Public-IP>			// working
+ubuntu@ansible-master:~$ ssh <Ansible-Agent-1-Private-IP>			// working
+
+
+// ADD THE PUB KEY FOR BETTER HANDSHAKE
+// ADD THE “$ cat ~/.ssh/id_rsa.pub” AND CROSS VERIFY
+ubuntu@Ansible-Agent-1:~/.ssh$ cat authorized_keys 
+
+
+// MacOS by default contains Python

@@ -1,0 +1,74 @@
+// Stable version of Python are:
+2.7
+3.6
+
+// INSTALL PYTHON ON EACH MACHINE
+ubuntu@Ansible-Master:~$ python --version
+The program 'python' can be found in the following packages:
+ * python-minimal
+ * python3
+Try: sudo apt install <selected package>
+ubuntu@Ansible-Master:~$ sudo apt-get update
+ubuntu@Ansible-Master:~$ sudo apt-get install python-minimal			// Press “Y” to proceed
+ubuntu@Ansible-Master:~$ python --version
+Python 2.7.12
+$ python
+Python 2.7.12 (default, Oct  8 2019, 14:14:10) 
+[GCC 5.4.0 20160609] on linux2
+Type "help", "copyright", "credits" or "license" for more information.
+>>> 
+$ python --version
+Python 2.7.12
+
+Note:
+While executing Ansible, python is required in each and machine but Ansible is not required in each and every machine, it only requires in Master
+
+
+// INSTALL ANSIBLE ON MASTER
+// https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-ansible-on-ubuntu-16-04
+$ ansible --version
+The program 'ansible' is currently not installed. You can install it by typing:
+sudo apt install unusable
+$ sudo apt-add-repository ppa:ansible/ansible						// Press Enter to proceed
+$ sudo apt-get update
+$ sudo apt-get install ansible										// Press “Y” to proceed
+$ ansible --version
+ansible 2.8.6
+  config file = /etc/ansible/ansible.cfg
+  configured module search path = [u'/home/ubuntu/.ansible/plugins/modules', u'/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python2.7/dist-packages/ansible
+  executable location = /usr/bin/ansible
+  python version = 2.7.12 (default, Oct  8 2019, 14:14:10) [GCC 5.4.0 20160609]
+$ python --version
+Python 2.7.12
+
+
+// INSTALL ONE EDITOR EITHER VISUAL STUDIO OR ATOM
+
+// INSTALL VISUAL STUDIO FOR UBUNTU: Editor
+// https://websiteforstudents.com/install-visual-studio-code-on-ubuntu-16-04-18-04/
+$ code .
+No command 'code' found, did you mean:
+ Command 'tcode' from package 'emboss' (universe)
+ Command 'cdde' from package 'cdde' (universe)
+ Command 'cde' from package 'cde' (universe)
+ Command 'cobe' from package 'python-cobe' (universe)
+ Command 'node' from package 'nodejs-legacy' (universe)
+ Command 'ode' from package 'plotutils' (universe)
+code: command not found
+$ sudo apt install snap
+$ sudo snap install vscode --classic
+// Don’t forget to install git…
+$ sudo apt install git
+// HOW TO START VISUAL STUDIO:
+$ pwd
+$ code .										// Not working in Ubuntu
+
+
+// INSTALL ATOM: Editor
+// http://tipsonubuntu.com/2016/08/05/install-atom-text-editor-ubuntu-16-04/
+// https://atom.io/		: Official WebSite
+// INSTALL ATOM ON UBUNTU:
+$ sudo add-apt-repository ppa:webupd8team/atom
+$ sudo apt update 
+$ sudo apt install atom
