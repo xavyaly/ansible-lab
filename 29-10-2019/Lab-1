@@ -1,0 +1,5 @@
+Definition of Inventory File:
+Ansible works against multiple systems in your infrastructure at the same time. It does this by selecting portions of systems listed in Ansible's inventory, which defaults to being saved in the location /etc/ansible/hosts . You can specify a different inventory file using the -i <path> option on the command line.
+
+Ansible Playbook:
+The playbook is the core component of any Ansible configuration. An Ansible playbook contains one or multiple plays, each of which define the work to be done for a configuration on a managed server.Ansible plays are written in YAML.

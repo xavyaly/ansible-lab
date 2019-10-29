@@ -1,0 +1,46 @@
+Playbook-1:
+
+// Create an inventory file:
+ubuntu@Ansible-Master:~/Ansible$ cat inventory.txt 
+[target]
+172.31.2.147 ansible_connection=ssh
+
+
+// Create a playbook for ping test
+ubuntu@Ansible-Master:~/Ansible$ cat playbook.pingtest.yml 
+-
+  name: Test connectivity to agent/target servers
+  hosts: all
+  tasks:
+    - name: Ping Test
+      ping:
+
+ubuntu@Ansible-Master:~/Ansible$ 
+
+
+// Check the syntax for playbook
+ubuntu@Ansible-Master:~/Ansible$ ansible-playbook playbook.pingtest.yml --syntax-check
+[WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+
+
+playbook: playbook.pingtest.yml
+ubuntu@Ansible-Master:~/Ansible$
+
+
+// Execution of playbook
+ubuntu@Ansible-Master:~/Ansible$ ansible-playbook playbook.pingtest.yml -i inventory.txt 
+
+PLAY [Test connectivity to agent/target servers] *********************************************************************************************************************************
+
+TASK [Gathering Facts] ***********************************************************************************************************************************************************
+ok: [172.31.2.147]
+
+TASK [Ping Test] *****************************************************************************************************************************************************************
+ok: [172.31.2.147]
+
+PLAY RECAP ***********************************************************************************************************************************************************************
+172.31.2.147               : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+ubuntu@Ansible-Master:~/Ansible$ 
+
+// Till here we have successfully executed our first ansible playbook

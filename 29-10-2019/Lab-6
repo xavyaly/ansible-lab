@@ -1,0 +1,15 @@
+Another way to execute an ansible playbook:
+
+ubuntu@Ansible-Master:~/Ansible$ ansible target -m ping -i inventory.txt 
+172.31.2.147 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    }, 
+    "changed": false, 
+    "ping": "pong"
+}
+ubuntu@Ansible-Master:~/Ansible$ 
+
+
+Note:
+// Output will reflect in JSON format

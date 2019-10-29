@@ -1,0 +1,13 @@
+If Suppose Ansible-Agent-1 is in Stopped State.
+
+ubuntu@Ansible-Master:~/Ansible$ ansible-playbook playbook.pingtest.yml -i inventory.txt 
+
+PLAY [Test connectivity to agent/target servers] *********************************************************************************************************************************
+
+TASK [Gathering Facts] ***********************************************************************************************************************************************************
+fatal: [172.31.2.147]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: connect to host 172.31.2.147 port 22: Connection timed out", "unreachable": true}
+
+PLAY RECAP ***********************************************************************************************************************************************************************
+172.31.2.147               : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+
+ubuntu@Ansible-Master:~/Ansible$ 

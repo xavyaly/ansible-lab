@@ -1,0 +1,18 @@
+no hosts matched:
+
+ubuntu@Ansible-Master:~/Ansible$ ansible-playbook playbook.pingtest.yml -i inventory.txt 
+[WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+
+
+PLAY [Test connectivity to agent/target servers] *********************************************************************************************************************************
+skipping: no hosts matched
+
+PLAY RECAP ***********************************************************************************************************************************************************************
+
+ubuntu@Ansible-Master:~/Ansible$ 
+ubuntu@Ansible-Master:~/Ansible$ 
+ubuntu@Ansible-Master:~/Ansible$ 
+ubuntu@Ansible-Master:~/Ansible$ cat inventory.txt 
+[target]
+#172.31.2.147 ansible_connection=ssh
+ubuntu@Ansible-Master:~/Ansible$ 
