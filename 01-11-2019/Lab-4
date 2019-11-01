@@ -1,0 +1,55 @@
+Suppose you need to write a playbook meanwhile switches required to different folders.
+Even we need execute multiple linux commands.
+
+ubuntu@Ansible-Master:~/Ansible$ cat inventory.txt 
+[agent1]
+172.31.2.147 ansible_connection=ssh
+
+[agent2]
+172.31.2.124 ansible_connection=ssh
+
+[allservers:children]
+agent1
+agent2
+ubuntu@Ansible-Master:~/Ansible$ 
+ubuntu@Ansible-Master:~/Ansible$ cat playbook.cattest.yml 
+-
+  name: Execute a date command on localhost
+  hosts: all
+  tasks: 
+    - name: Execute a date command
+      command: date
+    
+    - name: Display resolve.conf contents
+      command: cat resolv.conf chdir=/etc
+ubuntu@Ansible-Master:~/Ansible$ 
+ubuntu@Ansible-Master:~/Ansible$ 
+ubuntu@Ansible-Master:~/Ansible$ ansible-playbook playbook.cattest.yml --syntax-check
+[WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+
+
+playbook: playbook.cattest.yml
+ubuntu@Ansible-Master:~/Ansible$ 
+ubuntu@Ansible-Master:~/Ansible$ 
+ubuntu@Ansible-Master:~/Ansible$ ansible-playbook playbook.cattest.yml -i inventory.txt 
+
+PLAY [Execute a date command on localhost] ***************************************************************************************************************************************
+
+TASK [Gathering Facts] ***********************************************************************************************************************************************************
+ok: [172.31.2.124]
+ok: [172.31.2.147]
+
+TASK [Execute a date command] ****************************************************************************************************************************************************
+changed: [172.31.2.124]
+changed: [172.31.2.147]
+
+TASK [Display resolve.conf contents] *********************************************************************************************************************************************
+changed: [172.31.2.147]
+changed: [172.31.2.124]
+
+PLAY RECAP ***********************************************************************************************************************************************************************
+172.31.2.124               : ok=3    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+172.31.2.147               : ok=3    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+ubuntu@Ansible-Master:~/Ansible$ 
+

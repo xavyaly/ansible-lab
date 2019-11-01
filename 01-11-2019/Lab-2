@@ -1,0 +1,46 @@
+Recap:
+
+//Added both Agents;
+ubuntu@Ansible-Master:~/Ansible$ cat inventory.txt 
+[target]
+172.31.2.147 ansible_connection=ssh
+172.31.2.124 ansible_connection=ssh
+ubuntu@Ansible-Master:~/Ansible$ 
+
+//Execution:
+ubuntu@Ansible-Master:~/Ansible$ ansible-playbook playbook.pingtest.yml -i inventory.txt 
+
+PLAY [Test connectivity to agent/target servers] *********************************************************************************************************************************
+
+TASK [Gathering Facts] ***********************************************************************************************************************************************************
+ok: [172.31.2.147]
+ok: [172.31.2.124]
+
+TASK [Ping Test] *****************************************************************************************************************************************************************
+ok: [172.31.2.147]
+ok: [172.31.2.124]
+
+PLAY RECAP ***********************************************************************************************************************************************************************
+172.31.2.124               : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+172.31.2.147               : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+ubuntu@Ansible-Master:~/Ansible$ 
+
+
+ubuntu@Ansible-Master:~/Ansible$ ansible-playbook playbook.datetest.yml -i inventory.txt 
+
+PLAY [Execute a date command on localhost] ***************************************************************************************************************************************
+
+TASK [Gathering Facts] ***********************************************************************************************************************************************************
+ok: [172.31.2.124]
+ok: [172.31.2.147]
+
+TASK [Execute a date command] ****************************************************************************************************************************************************
+changed: [172.31.2.124]
+changed: [172.31.2.147]
+
+PLAY RECAP ***********************************************************************************************************************************************************************
+172.31.2.124               : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+172.31.2.147               : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+ubuntu@Ansible-Master:~/Ansible$ 

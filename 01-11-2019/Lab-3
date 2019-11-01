@@ -1,0 +1,41 @@
+Suppose we want to copy a singlee txt file to multiple servers:
+
+ubuntu@Ansible-Master:~/Ansible$ ls -l test.txt 
+-rw-rw-r-- 1 ubuntu ubuntu 0 Nov  1 15:05 test.txt
+ubuntu@Ansible-Master:~/Ansible$
+
+ubuntu@Ansible-Master:~/Ansible$ cat inventory.txt 
+[agent1]
+172.31.2.147 ansible_connection=ssh
+
+[agent2]
+172.31.2.124 ansible_connection=ssh
+
+[allservers:children]
+agent1
+agent2
+ubuntu@Ansible-Master:~/Ansible$ 
+
+// Execution:
+ubuntu@Ansible-Master:~/Ansible$ cat playbook.copy.yml 
+-
+  name: Copy the file to target server
+  hosts: agent2
+  become: yes
+  tasks:
+    - name: Copy File
+      copy:
+        src: /home/ubuntu/Ansible/test.txt
+        dest: /home/ubuntu/
+
+ubuntu@Ansible-Master:~/Ansible$ 
+
+//Cross Verification:
+
+ubuntu@Ansible-Agent-2:~$ ls -l
+total 0
+-rw-r--r-- 1 root root 0 Nov  1 15:16 test.txt
+ubuntu@Ansible-Agent-2:~$ pwd
+/home/ubuntu
+ubuntu@Ansible-Agent-2:~$ 
+
