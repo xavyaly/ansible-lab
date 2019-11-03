@@ -29,3 +29,6 @@ ubuntu@Jenkins-Ansible:~/Ansible$ cat playbook.createuser.yml
         group: devops-2
 buntu@Jenkins-Ansible:~/Ansible$ 
 
+Online Compiler:
+https://codebeautify.org/yaml-validator
+
