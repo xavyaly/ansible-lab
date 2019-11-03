@@ -1,0 +1,31 @@
+When one try to create a same user in remote mchine, may be it fails because may be group doesn’t exist so either you can create manually or through playbook.
+
+ubuntu@Jenkins-Ansible:~/Ansible$ ansible-playbook playbook.createuser.yml -i inventory.txt 
+
+PLAY [Play1] *********************************************************************************************************************************************************************
+
+TASK [Gathering Facts] ***********************************************************************************************************************************************************
+ok: [172.31.2.147]
+
+TASK [create a user] *************************************************************************************************************************************************************
+fatal: [172.31.2.147]: FAILED! => {"changed": false, "msg": "Group devops-2 does not exist"}
+
+PLAY RECAP ***********************************************************************************************************************************************************************
+172.31.2.147               : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+
+ubuntu@Jenkins-Ansible:~/Ansible$ 
+ubuntu@Jenkins-Ansible:~/Ansible$ 
+ubuntu@Jenkins-Ansible:~/Ansible$ cat playbook.createuser.yml 
+-
+  name: Play1
+  hosts: agent1
+  become: yes
+  tasks:
+    -
+      name: create a user
+      user:
+        name: deepak
+        uid: 1041
+        group: devops-2
+ubuntu@Jenkins-Ansible:~/Ansible$ 
+

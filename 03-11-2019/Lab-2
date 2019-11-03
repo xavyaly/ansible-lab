@@ -1,0 +1,54 @@
+Execute on localhost:
+
+ubuntu@Jenkins-Ansible:~/Ansible$ cat inventory.txt 
+[agent1]
+172.31.2.147 ansible_connection=ssh
+
+[agent2]
+172.31.2.124 ansible_connection=ssh
+
+[allservers:children]
+agent1
+agent2
+ubuntu@Jenkins-Ansible:~/Ansible$ 
+
+
+ubuntu@Jenkins-Ansible:~/Ansible$ cat playbook.service.yml 
+-
+  name: Check the service 
+  hosts: localhost
+  become: yes
+  tasks: 
+    - name: Execute a service command
+      service: 
+        name: apache2
+        state: restarted
+ubuntu@Jenkins-Ansible:~/Ansible$ 
+
+
+ubuntu@Jenkins-Ansible:~/Ansible$ ansible-playbook playbook.service.yml --syntax-check
+[WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+
+
+playbook: playbook.service.yml
+ubuntu@Jenkins-Ansible:~/Ansible$ 
+
+
+// Note: No need to pass the inventory because we are executing in out localhost:
+
+ubuntu@Jenkins-Ansible:~/Ansible$ ansible-playbook playbook.service.yml 
+[WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+
+
+PLAY [Check the service] *********************************************************************************************************************************************************
+
+TASK [Gathering Facts] ***********************************************************************************************************************************************************
+ok: [localhost]
+
+TASK [Execute a service command] *************************************************************************************************************************************************
+changed: [localhost]
+
+PLAY RECAP ***********************************************************************************************************************************************************************
+localhost                  : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+ubuntu@Jenkins-Ansible:~/Ansible$ 

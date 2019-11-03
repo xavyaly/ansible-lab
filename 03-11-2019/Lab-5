@@ -1,0 +1,262 @@
+Execute again on all nodes, make sure both have the apache2 service
+
+Install in Ansible-Agent-1 and cross verify:
+
+ubuntu@Ansible-Agent-1:~$ sudo apt-get install apache2
+
+ubuntu@Ansible-Agent-1:~$ sudo service apache2 status
+● apache2.service - LSB: Apache2 web server
+   Loaded: loaded (/etc/init.d/apache2; bad; vendor preset: enabled)
+  Drop-In: /lib/systemd/system/apache2.service.d
+           └─apache2-systemd.conf
+   Active: active (running) since Sun 2019-11-03 06:32:55 UTC; 27s ago
+     Docs: man:systemd-sysv-generator(8)
+   CGroup: /system.slice/apache2.service
+           ├─4834 /usr/sbin/apache2 -k start
+           ├─4837 /usr/sbin/apache2 -k start
+           └─4838 /usr/sbin/apache2 -k start
+
+Nov 03 06:32:54 Ansible-Agent-1 systemd[1]: Starting LSB: Apache2 web server...
+Nov 03 06:32:54 Ansible-Agent-1 apache2[4810]:  * Starting Apache httpd web server apache2
+Nov 03 06:32:54 Ansible-Agent-1 apache2[4810]: AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 127.0.0.1. Set the 'ServerName' dire
+Nov 03 06:32:55 Ansible-Agent-1 apache2[4810]:  *
+Nov 03 06:32:55 Ansible-Agent-1 systemd[1]: Started LSB: Apache2 web server.
+lines 1-16/16 (END)
+ubuntu@Ansible-Agent-1:~$ 
+
+
+// Now in both machines we have apache2 service present:
+
+ubuntu@Jenkins-Ansible:~/Ansible$ cat inventory.txt 
+[agent1]
+172.31.2.147 ansible_connection=ssh
+
+[agent2]
+172.31.2.124 ansible_connection=ssh
+
+[allservers:children]
+agent1
+agent2
+ubuntu@Jenkins-Ansible:~/Ansible$ 
+ubuntu@Jenkins-Ansible:~/Ansible$ 
+ubuntu@Jenkins-Ansible:~/Ansible$ cat playbook.service.yml 
+-
+  name: Check the service 
+  hosts: all
+  become: yes
+  tasks: 
+    - name: Execute a service command
+      service: 
+        name: apache2
+        state: restarted
+ubuntu@Jenkins-Ansible:~/Ansible$ 
+
+// Execute it:
+
+ubuntu@Jenkins-Ansible:~/Ansible$ ansible-playbook playbook.service.yml -i inventory.txt 
+
+PLAY [Check the service] *********************************************************************************************************************************************************
+
+TASK [Gathering Facts] ***********************************************************************************************************************************************************
+ok: [172.31.2.147]
+ok: [172.31.2.124]
+
+TASK [Execute a service command] *************************************************************************************************************************************************
+changed: [172.31.2.147]
+changed: [172.31.2.124]
+
+PLAY RECAP ***********************************************************************************************************************************************************************
+172.31.2.124               : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+172.31.2.147               : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+ubuntu@Jenkins-Ansible:~/Ansible$ 
+
+
+Quest: 
+Stop services on both machines via playbook:
+
+ubuntu@Jenkins-Ansible:~/Ansible$ cat playbook.service.yml 
+-
+  name: Check the service 
+  hosts: all
+  become: yes
+  tasks: 
+    - name: Execute a service command
+      service: 
+        name: apache2
+        state: stopped
+ubuntu@Jenkins-Ansible:~/Ansible$ 
+
+
+ubuntu@Jenkins-Ansible:~/Ansible$ cat inventory.txt 
+[agent1]
+172.31.2.147 ansible_connection=ssh
+
+[agent2]
+172.31.2.124 ansible_connection=ssh
+
+[allservers:children]
+agent1
+agent2
+ubuntu@Jenkins-Ansible:~/Ansible$ 
+
+
+ubuntu@Jenkins-Ansible:~/Ansible$ ansible-playbook playbook.service.yml -i inventory.txt 
+
+PLAY [Check the service] *********************************************************************************************************************************************************
+
+TASK [Gathering Facts] ***********************************************************************************************************************************************************
+ok: [172.31.2.147]
+ok: [172.31.2.124]
+
+TASK [Execute a service command] *************************************************************************************************************************************************
+changed: [172.31.2.147]
+changed: [172.31.2.124]
+
+PLAY RECAP ***********************************************************************************************************************************************************************
+172.31.2.124               : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+172.31.2.147               : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+ubuntu@Jenkins-Ansible:~/Ansible$ 
+
+// Cross verification:
+
+ubuntu@Ansible-Agent-1:~$ sudo service apache2 status
+● apache2.service - LSB: Apache2 web server
+   Loaded: loaded (/etc/init.d/apache2; bad; vendor preset: enabled)
+  Drop-In: /lib/systemd/system/apache2.service.d
+           └─apache2-systemd.conf
+   Active: inactive (dead) since Sun 2019-11-03 06:36:27 UTC; 4s ago
+     Docs: man:systemd-sysv-generator(8)
+  Process: 5315 ExecStop=/etc/init.d/apache2 stop (code=exited, status=0/SUCCESS)
+  Process: 5145 ExecStart=/etc/init.d/apache2 start (code=exited, status=0/SUCCESS)
+
+Nov 03 06:35:30 Ansible-Agent-1 systemd[1]: Stopped LSB: Apache2 web server.
+Nov 03 06:35:30 Ansible-Agent-1 systemd[1]: Starting LSB: Apache2 web server...
+Nov 03 06:35:30 Ansible-Agent-1 apache2[5145]:  * Starting Apache httpd web server apache2
+Nov 03 06:35:30 Ansible-Agent-1 apache2[5145]: AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 127.0.0.1. Set the 'ServerName' dire
+Nov 03 06:35:31 Ansible-Agent-1 apache2[5145]:  *
+Nov 03 06:35:31 Ansible-Agent-1 systemd[1]: Started LSB: Apache2 web server.
+Nov 03 06:36:26 Ansible-Agent-1 systemd[1]: Stopping LSB: Apache2 web server...
+Nov 03 06:36:26 Ansible-Agent-1 apache2[5315]:  * Stopping Apache httpd web server apache2
+Nov 03 06:36:27 Ansible-Agent-1 apache2[5315]:  *
+Nov 03 06:36:27 Ansible-Agent-1 systemd[1]: Stopped LSB: Apache2 web server.
+
+ubuntu@Ansible-Agent-2:~$ sudo service apache2 status
+● apache2.service - LSB: Apache2 web server
+   Loaded: loaded (/etc/init.d/apache2; bad; vendor preset: enabled)
+  Drop-In: /lib/systemd/system/apache2.service.d
+           └─apache2-systemd.conf
+   Active: inactive (dead) since Sun 2019-11-03 06:36:27 UTC; 9s ago
+     Docs: man:systemd-sysv-generator(8)
+  Process: 23724 ExecStop=/etc/init.d/apache2 stop (code=exited, status=0/SUCCESS)
+  Process: 23554 ExecStart=/etc/init.d/apache2 start (code=exited, status=0/SUCCESS)
+
+Nov 03 06:35:30 Ansible-Agent-2 systemd[1]: Stopped LSB: Apache2 web server.
+Nov 03 06:35:30 Ansible-Agent-2 systemd[1]: Starting LSB: Apache2 web server...
+Nov 03 06:35:30 Ansible-Agent-2 apache2[23554]:  * Starting Apache httpd web server apache2
+Nov 03 06:35:30 Ansible-Agent-2 apache2[23554]: AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 127.0.0.1. Set the 'ServerName' dir
+Nov 03 06:35:31 Ansible-Agent-2 apache2[23554]:  *
+Nov 03 06:35:31 Ansible-Agent-2 systemd[1]: Started LSB: Apache2 web server.
+Nov 03 06:36:26 Ansible-Agent-2 systemd[1]: Stopping LSB: Apache2 web server...
+Nov 03 06:36:26 Ansible-Agent-2 apache2[23724]:  * Stopping Apache httpd web server apache2
+Nov 03 06:36:27 Ansible-Agent-2 apache2[23724]:  *
+Nov 03 06:36:27 Ansible-Agent-2 systemd[1]: Stopped LSB: Apache2 web server.
+lines 1-19/19 (END)
+
+
+// Again restart it with playbook:
+
+ubuntu@Jenkins-Ansible:~/Ansible$ cat inventory.txt 
+[agent1]
+172.31.2.147 ansible_connection=ssh
+
+[agent2]
+172.31.2.124 ansible_connection=ssh
+
+[allservers:children]
+agent1
+agent2
+ubuntu@Jenkins-Ansible:~/Ansible$ 
+ubuntu@Jenkins-Ansible:~/Ansible$ cat playbook.service.yml 
+-
+  name: Check the service 
+  hosts: all
+  become: yes
+  tasks: 
+    - name: Execute a service command
+      service: 
+        name: apache2
+        state: restarted
+
+ubuntu@Jenkins-Ansible:~/Ansible$ 
+
+ubuntu@Jenkins-Ansible:~/Ansible$ ansible-playbook playbook.service.yml -i inventory.txt 
+
+PLAY [Check the service] *********************************************************************************************************************************************************
+
+TASK [Gathering Facts] ***********************************************************************************************************************************************************
+ok: [172.31.2.147]
+ok: [172.31.2.124]
+
+TASK [Execute a service command] *************************************************************************************************************************************************
+changed: [172.31.2.147]
+changed: [172.31.2.124]
+
+PLAY RECAP ***********************************************************************************************************************************************************************
+172.31.2.124               : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+172.31.2.147               : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+ubuntu@Jenkins-Ansible:~/Ansible$ 
+
+// Cross verify:
+
+ubuntu@Ansible-Agent-1:~$ sudo service apache2 status
+● apache2.service - LSB: Apache2 web server
+   Loaded: loaded (/etc/init.d/apache2; bad; vendor preset: enabled)
+  Drop-In: /lib/systemd/system/apache2.service.d
+           └─apache2-systemd.conf
+   Active: active (running) since Sun 2019-11-03 06:39:07 UTC; 53s ago
+     Docs: man:systemd-sysv-generator(8)
+  Process: 5315 ExecStop=/etc/init.d/apache2 stop (code=exited, status=0/SUCCESS)
+  Process: 5477 ExecStart=/etc/init.d/apache2 start (code=exited, status=0/SUCCESS)
+    Tasks: 55
+   Memory: 2.3M
+      CPU: 77ms
+   CGroup: /system.slice/apache2.service
+           ├─5494 /usr/sbin/apache2 -k start
+           ├─5497 /usr/sbin/apache2 -k start
+           └─5498 /usr/sbin/apache2 -k start
+
+Nov 03 06:39:06 Ansible-Agent-1 systemd[1]: Starting LSB: Apache2 web server...
+Nov 03 06:39:06 Ansible-Agent-1 apache2[5477]:  * Starting Apache httpd web server apache2
+Nov 03 06:39:06 Ansible-Agent-1 apache2[5477]: AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 127.0.0.1. Set the 'ServerName' dire
+Nov 03 06:39:07 Ansible-Agent-1 apache2[5477]:  *
+Nov 03 06:39:07 Ansible-Agent-1 systemd[1]: Started LSB: Apache2 web server.
+lines 1-21/21 (END)
+ubuntu@Ansible-Agent-1:~$ 
+
+ubuntu@Ansible-Agent-2:~$ sudo service apache2 status
+● apache2.service - LSB: Apache2 web server
+   Loaded: loaded (/etc/init.d/apache2; bad; vendor preset: enabled)
+  Drop-In: /lib/systemd/system/apache2.service.d
+           └─apache2-systemd.conf
+   Active: active (running) since Sun 2019-11-03 06:39:07 UTC; 43s ago
+     Docs: man:systemd-sysv-generator(8)
+  Process: 23724 ExecStop=/etc/init.d/apache2 stop (code=exited, status=0/SUCCESS)
+  Process: 23883 ExecStart=/etc/init.d/apache2 start (code=exited, status=0/SUCCESS)
+    Tasks: 55
+   Memory: 2.3M
+      CPU: 82ms
+   CGroup: /system.slice/apache2.service
+           ├─23900 /usr/sbin/apache2 -k start
+           ├─23903 /usr/sbin/apache2 -k start
+           └─23904 /usr/sbin/apache2 -k start
+
+Nov 03 06:39:06 Ansible-Agent-2 systemd[1]: Starting LSB: Apache2 web server...
+Nov 03 06:39:06 Ansible-Agent-2 apache2[23883]:  * Starting Apache httpd web server apache2
+Nov 03 06:39:06 Ansible-Agent-2 apache2[23883]: AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 127.0.0.1. Set the 'ServerName' dir
+Nov 03 06:39:07 Ansible-Agent-2 apache2[23883]:  *
+Nov 03 06:39:07 Ansible-Agent-2 systemd[1]: Started LSB: Apache2 web server.
+lines 1-21/21 (END)
+ubuntu@Ansible-Agent-2:~$ 

@@ -1,0 +1,75 @@
+Lab-1:
+
+Global inventory file used in real time
+
+List of nodes:
+server1.company.com: Linux Machine
+server2.company.com: Linux Machine
+server3.company.com: Linux Machine
+server4.company.com: Linux Machine
+server5.company.com: Linux Machine
+server6.company.com: Windows Server
+server7.company.com
+server8.company.com
+server9.company.com
+
+You can consider: 1000 Servers
+
+Groups:
+web: Added 2 servers
+cq: Added 2 servers
+db: Added 1 server
+mail: Added 2 server
+jenkins: Add 1 server
+
+General 3 Layer Architecture:
+External -> ELB -> Web Server -> Internal LB -> App {CQ server} -> DB Server(Data)
+
+$ cat inventory.txt 
+[web]
+server1.company.com ansible_host=server1.company.com ansible_connection=ssh ansible_user=root ansible_ssh_pass=Linux$Password
+server2.company.com ansible_host=server2.company.com ansible_connection=ssh ansible_user=root ansible_ssh_pass=Linux$Password
+
+[cq]
+server3.company.com ansible_host=server3.company.com ansible_connection=ssh ansible_user=admin
+
+[ansible]
+server4.company.com ansible_host=server4.company.com ansible_connection=ssh ansible_user=root
+
+[db]
+server5.company.com ansible_host=server5.company.com ansible_connection=ssh ansible_user=admin ansible_ssh_pass=Linux$Password
+
+[mail]
+server6.company.com ansible_host=server6.company.com ansible_connection=winrm ansible_user=root ansible_password=Win$Password
+
+[docker]
+server7.company.com ansible_host=server7.company.com ansible_connection=ssh ansible_user=root ansible_password=Win$Password
+
+[jenkins]
+server8.company.com ansible_host=server8.company.com ansible_connection=ssh ansible_user=root ansible_password=Linux$Password
+
+#CREATE GROUPS
+[web-db]
+web
+db
+
+[db-jenkins]
+db
+jenkins
+
+[all_servers:children]
+web
+cq
+db
+mail
+jenkins
+docker
+ansible
+
+[group1]
+server9.company.com ansible_host=server9.company.com ansible_connection=ssh ansible_user=root ansible_password=Linux$Password
+
+#INFORMATION OF LOCALHOST
+localhost ansible_connection=localhost
+
+ubuntu@Jenkins-Ansible:~/Ansible/test-inventory$ 

@@ -1,0 +1,104 @@
+Suppose you need to create a new user and add into some group:
+
+ubuntu@Jenkins-Ansible:~/Ansible$ cat /etc/passwd | grep deepak
+ubuntu@Jenkins-Ansible:~/Ansible$ 
+ubuntu@Jenkins-Ansible:~/Ansible$ cat /etc/group | grep devops-2
+ubuntu@Jenkins-Ansible:~/Ansible$ 
+
+
+// My playbook
+
+ubuntu@Jenkins-Ansible:~/Ansible$ cat playbook.createuser.yml 
+-
+  name: Play1
+  hosts: localhost
+  become: yes
+  tasks:
+    -
+      name: create a user
+      user:
+        name: deppak
+        uid: 1041
+        group: devops-2
+ubuntu@Jenkins-Ansible:~/Ansible$ 
+
+
+// Execute, it throws error why ? Because neither group nor user is present
+
+ubuntu@Jenkins-Ansible:~/Ansible$ ansible-playbook playbook.createuser.yml 
+[WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+
+
+PLAY [Play1] *********************************************************************************************************************************************************************
+
+TASK [Gathering Facts] ***********************************************************************************************************************************************************
+ok: [localhost]
+
+TASK [create a user] *************************************************************************************************************************************************************
+fatal: [localhost]: FAILED! => {"changed": false, "msg": "Group devops-2 does not exist"}
+
+PLAY RECAP ***********************************************************************************************************************************************************************
+localhost                  : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+
+ubuntu@Jenkins-Ansible:~/Ansible$ 
+
+
+Steps:
+
+First create group:
+$ sudo groupadd devops-2
+
+ubuntu@Jenkins-Ansible:~/Ansible$ cat /etc/group | grep devops-2
+devops-2:x:1002:
+ubuntu@Jenkins-Ansible:~/Ansible$ 
+
+Till here we have created a group now lets run playbook:
+
+ubuntu@Jenkins-Ansible:~/Ansible$ cat playbook.createuser.yml 
+-
+  name: Play1
+  hosts: localhost
+  become: yes
+  tasks:
+    -
+      name: create a user
+      user:
+        name: deepak
+        uid: 1041
+        group: devops-2
+ubuntu@Jenkins-Ansible:~/Ansible$
+
+
+ubuntu@Jenkins-Ansible:~/Ansible$ ansible-playbook playbook.createuser.yml --syntax-check
+[WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+
+
+playbook: playbook.createuser.yml
+ubuntu@Jenkins-Ansible:~/Ansible$ 
+
+// Executed:
+
+ubuntu@Jenkins-Ansible:~/Ansible$ ansible-playbook playbook.createuser.yml 
+[WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+
+
+PLAY [Play1] *********************************************************************************************************************************************************************
+
+TASK [Gathering Facts] ***********************************************************************************************************************************************************
+ok: [localhost]
+
+TASK [create a user] *************************************************************************************************************************************************************
+changed: [localhost]
+
+PLAY RECAP ***********************************************************************************************************************************************************************
+localhost                  : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+ubuntu@Jenkins-Ansible:~/Ansible$ 
+
+// Cross verify:
+
+ubuntu@Jenkins-Ansible:~/Ansible$ cat /etc/group | grep devops-2
+devops-2:x:1002:
+
+ubuntu@Jenkins-Ansible:~/Ansible$ cat /etc/passwd | grep deepak
+deepak:x:1041:1002::/home/deepak:

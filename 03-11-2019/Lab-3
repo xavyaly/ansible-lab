@@ -1,0 +1,94 @@
+Execute on remote servers like on agent2, So first we need to cross verify wether apache2 service is present or not:
+
+ubuntu@Jenkins-Ansible:~/Ansible$ cat inventory.txt 
+[agent1]
+172.31.2.147 ansible_connection=ssh
+
+[agent2]
+172.31.2.124 ansible_connection=ssh
+
+[allservers:children]
+agent1
+agent2
+ubuntu@Jenkins-Ansible:~/Ansible$ 
+
+
+// Login to Ansible-Agent-2 and cross verify the service:
+
+ubuntu@Ansible-Agent-2:~$ sudo service apache2 status
+● apache2.service - LSB: Apache2 web server
+   Loaded: loaded (/etc/init.d/apache2; bad; vendor preset: enabled)
+  Drop-In: /lib/systemd/system/apache2.service.d
+           └─apache2-systemd.conf
+   Active: active (running) since Sun 2019-11-03 05:30:07 UTC; 45min ago
+     Docs: man:systemd-sysv-generator(8)
+  Process: 22210 ExecStop=/etc/init.d/apache2 stop (code=exited, status=0/SUCCESS)
+  Process: 22234 ExecStart=/etc/init.d/apache2 start (code=exited, status=0/SUCCESS)
+    Tasks: 55
+   Memory: 2.5M
+      CPU: 1.935s
+   CGroup: /system.slice/apache2.service
+           ├─22253 /usr/sbin/apache2 -k start
+           ├─22256 /usr/sbin/apache2 -k start
+           └─22257 /usr/sbin/apache2 -k start
+
+Nov 03 05:30:06 Ansible-Agent-2 systemd[1]: Stopped LSB: Apache2 web server.
+Nov 03 05:30:06 Ansible-Agent-2 systemd[1]: Starting LSB: Apache2 web server...
+Nov 03 05:30:06 Ansible-Agent-2 apache2[22234]:  * Starting Apache httpd web server apache2
+Nov 03 05:30:06 Ansible-Agent-2 apache2[22234]: AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 127.0.0.1. Set the 'ServerName' dir
+Nov 03 05:30:07 Ansible-Agent-2 apache2[22234]:  *
+Nov 03 05:30:07 Ansible-Agent-2 systemd[1]: Started LSB: Apache2 web server.
+lines 1-22/22 (END)
+ubuntu@Ansible-Agent-2:~$ 
+
+
+My playbook
+
+ubuntu@Jenkins-Ansible:~/Ansible$ cat playbook.service.yml 
+-
+  name: Check the service 
+  hosts: agent2
+  become: yes
+  tasks: 
+    - name: Execute a service command
+      service: 
+        name: apache2
+        state: restarted
+ubuntu@Jenkins-Ansible:~/Ansible$ 
+
+
+
+Execution:
+
+Error if we do not pass the inventory file
+
+ubuntu@Jenkins-Ansible:~/Ansible$ ansible-playbook playbook.service.yml 
+[WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+
+[WARNING]: Could not match supplied host pattern, ignoring: agent2
+
+
+PLAY [Check the service] *********************************************************************************************************************************************************
+skipping: no hosts matched
+
+PLAY RECAP ***********************************************************************************************************************************************************************
+
+ubuntu@Jenkins-Ansible:~/Ansible$ 
+
+
+Again execute with inventory file:
+
+ubuntu@Jenkins-Ansible:~/Ansible$ ansible-playbook playbook.service.yml -i inventory.txt 
+
+PLAY [Check the service] *********************************************************************************************************************************************************
+
+TASK [Gathering Facts] ***********************************************************************************************************************************************************
+ok: [172.31.2.124]
+
+TASK [Execute a service command] *************************************************************************************************************************************************
+changed: [172.31.2.124]
+
+PLAY RECAP ***********************************************************************************************************************************************************************
+172.31.2.124               : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+ubuntu@Jenkins-Ansible:~/Ansible$ 

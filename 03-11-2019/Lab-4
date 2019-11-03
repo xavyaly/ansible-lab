@@ -1,0 +1,117 @@
+Execute on Ansible-Agent-1, May be apache2 will be not present:
+
+ubuntu@Jenkins-Ansible:~/Ansible$ cat inventory.txt 
+[agent1]
+172.31.2.147 ansible_connection=ssh
+
+[agent2]
+172.31.2.124 ansible_connection=ssh
+
+[allservers:children]
+agent1
+agent2
+ubuntu@Jenkins-Ansible:~/Ansible$ 
+
+// My playbook
+
+ubuntu@Jenkins-Ansible:~/Ansible$ cat playbook.service.yml 
+-
+  name: Check the service 
+  hosts: agent1
+  become: yes
+  tasks: 
+    - name: Execute a service command
+      service: 
+        name: apache2
+        state: restarted
+ubuntu@Jenkins-Ansible:~/Ansible$ 
+
+
+// Check the syntax:
+
+ubuntu@Jenkins-Ansible:~/Ansible$ ansible-playbook playbook.service.yml --syntax-check
+[WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+
+[WARNING]: Could not match supplied host pattern, ignoring: agent1
+
+
+playbook: playbook.service.yml
+ubuntu@Jenkins-Ansible:~/Ansible$
+
+
+// Execute it:
+
+ubuntu@Jenkins-Ansible:~/Ansible$ ansible-playbook playbook.service.yml -i inventory.txt 
+
+PLAY [Check the service] *********************************************************************************************************************************************************
+
+TASK [Gathering Facts] ***********************************************************************************************************************************************************
+ok: [172.31.2.147]
+
+TASK [Execute a service command] *************************************************************************************************************************************************
+fatal: [172.31.2.147]: FAILED! => {"changed": false, "msg": "Could not find the requested service apache2: host"}
+
+PLAY RECAP ***********************************************************************************************************************************************************************
+172.31.2.147               : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+
+ubuntu@Jenkins-Ansible:~/Ansible$ 
+
+
+// Note:
+Above execution got failed because apache2 was not present at Ansible-Agent-2
+
+Question:
+What happened if we have 10 or more servers and if it encounters an issue ? Will it stuck at the same point or will it skip ?
+
+// Lets execute on all server, as of now we have only 2 servers, bit change in playbook
+
+ubuntu@Jenkins-Ansible:~/Ansible$ cat playbook.service.yml 
+-
+  name: Check the service 
+  hosts: all
+  become: yes
+  tasks: 
+    - name: Execute a service command
+      service: 
+        name: apache2
+        state: restarted
+ubuntu@Jenkins-Ansible:~/Ansible$ 
+
+ubuntu@Jenkins-Ansible:~/Ansible$ cat inventory.txt 
+[agent1]
+172.31.2.147 ansible_connection=ssh
+
+[agent2]
+172.31.2.124 ansible_connection=ssh
+
+[allservers:children]
+agent1
+agent2
+ubuntu@Jenkins-Ansible:~/Ansible$ 
+
+ubuntu@Jenkins-Ansible:~/Ansible$ ansible-playbook playbook.service.yml --syntax-check 
+[WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+
+
+playbook: playbook.service.yml
+ubuntu@Jenkins-Ansible:~/Ansible$ 
+
+// Execute it:
+
+ubuntu@Jenkins-Ansible:~/Ansible$ ansible-playbook playbook.service.yml -i inventory.txt 
+
+PLAY [Check the service] *********************************************************************************************************************************************************
+
+TASK [Gathering Facts] ***********************************************************************************************************************************************************
+ok: [172.31.2.147]
+ok: [172.31.2.124]
+
+TASK [Execute a service command] *************************************************************************************************************************************************
+fatal: [172.31.2.147]: FAILED! => {"changed": false, "msg": "Could not find the requested service apache2: host"}
+changed: [172.31.2.124]
+
+PLAY RECAP ***********************************************************************************************************************************************************************
+172.31.2.124               : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+172.31.2.147               : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+
+ubuntu@Jenkins-Ansible:~/Ansible$ 
