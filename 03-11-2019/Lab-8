@@ -27,5 +27,5 @@ ubuntu@Jenkins-Ansible:~/Ansible$ cat playbook.createuser.yml
         name: deepak
         uid: 1041
         group: devops-2
-ubuntu@Jenkins-Ansible:~/Ansible$ 
+buntu@Jenkins-Ansible:~/Ansible$ 
 
